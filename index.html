@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STUDY-HUB</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    position:relative;
+
+    background:linear-gradient(
+    135deg,
+    #eef2ff,
+    #fdf2f8,
+    #eff6ff
+    );
+}
+
+/* Animated Background */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+/* Large Glow Balls */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.7;
+    animation:float 10s infinite ease-in-out;
+}
+
+.circle1{
+    width:320px;
+    height:320px;
+    background:#8b5cf6;
+    top:-120px;
+    left:-100px;
+}
+
+.circle2{
+    width:260px;
+    height:260px;
+    background:#60a5fa;
+    bottom:-100px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+.circle3{
+    width:220px;
+    height:220px;
+    background:#f472b6;
+    top:45%;
+    left:45%;
+    animation-delay:4s;
+}
+
+/* Small Floating Dots */
+
+.dot{
+    position:absolute;
+    border-radius:50%;
+    background:white;
+    opacity:0.7;
+    animation:move 6s infinite ease-in-out;
+}
+
+.dot1{
+    width:12px;
+    height:12px;
+    top:18%;
+    left:15%;
+}
+
+.dot2{
+    width:10px;
+    height:10px;
+    top:70%;
+    left:80%;
+    animation-delay:2s;
+}
+
+.dot3{
+    width:14px;
+    height:14px;
+    top:50%;
+    left:55%;
+    animation-delay:4s;
+}
+
+.dot4{
+    width:8px;
+    height:8px;
+    top:30%;
+    left:75%;
+    animation-delay:1s;
+}
+
+.dot5{
+    width:11px;
+    height:11px;
+    top:82%;
+    left:20%;
+    animation-delay:3s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px) scale(1);
+    }
+
+    50%{
+        transform:translateY(-30px) scale(1.08);
+    }
+
+    100%{
+        transform:translateY(0px) scale(1);
+    }
+}
+
+@keyframes move{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Main */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    z-index:2;
+}
+
+/* Card */
+
+.card{
+    width:100%;
+    max-width:390px;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,0.4);
+
+    border-radius:34px;
+
+    padding:34px 24px;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.08);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Card Glow */
+
+.card::before{
+    content:'';
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    background:rgba(255,255,255,0.25);
+
+    border-radius:50%;
+
+    top:-90px;
+    right:-90px;
+}
+
+/* Logo */
+
+.logo{
+    width:100px;
+    height:100px;
+
+    margin:auto;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:46px;
+
+    box-shadow:
+    0 12px 30px rgba(124,58,237,0.25);
+
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* Text */
+
+.title{
+    margin-top:22px;
+
+    font-size:40px;
+    font-weight:800;
+
+    color:#111827;
+}
+
+.subtitle{
+    margin-top:10px;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+/* Line */
+
+.line{
+    width:95px;
+    height:5px;
+
+    border-radius:20px;
+
+    margin:24px auto;
+
+    background:linear-gradient(
+    90deg,
+    #7c3aed,
+    #3b82f6
+    );
+}
+
+/* Buttons */
+
+.btn{
+    width:100%;
+
+    border:none;
+    outline:none;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    margin-bottom:16px;
+
+    transition:0.3s;
+
+    font-family:'Poppins',sans-serif;
+}
+
+.primary-btn{
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+    0 10px 24px rgba(124,58,237,0.22);
+}
+
+.secondary-btn{
+    background:white;
+
+    color:#111827;
+
+    border:1px solid rgba(0,0,0,0.08);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Website Box */
+
+.website-box{
+    margin-top:10px;
+
+    padding:18px;
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.05);
+}
+
+.website-title{
+    color:#6b7280;
+    font-size:13px;
+    font-weight:600;
+}
+
+.website-link{
+    display:block;
+
+    margin-top:6px;
+
+    color:#7c3aed;
+
+    font-size:18px;
+    font-weight:700;
+}
+
+/* Instagram Box */
+
+.insta-box{
+    width:100%;
+    margin-top:14px;
+    padding:14px;
+    border-radius:18px;
+    background:white;
+    box-shadow:
+    0 6px 18px rgba(0,0,0,0.05);
+    transition:0.3s;
+    display:block;
+}
+
+.insta-box:hover{
+    transform:translateY(-3px);
+}
+
+.insta-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.insta-logo{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+
+    background:linear-gradient(
+    135deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:22px;
+
+    flex-shrink:0;
+}
+
+.insta-content{
+    text-align:left;
+}
+
+.follow{
+    color:#6b7280;
+    font-size:12px;
+    font-weight:500;
+}
+
+.tag{
+    margin-top:5px;
+
+    display:inline-block;
+
+    padding:5px 12px;
+
+    border-radius:50px;
+
+    background:#fdf2f8;
+
+    color:#d62976;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+/* Footer */
+
+.footer{
+    margin-top:22px;
+
+    color:#6b7280;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.footer span{
+    color:#111827;
+    font-weight:700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="bg">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+<div class="dot dot1"></div>
+<div class="dot dot2"></div>
+<div class="dot dot3"></div>
+<div class="dot dot4"></div>
+<div class="dot dot5"></div>
+
+</div>
+
+<!-- Main -->
+
+<div class="container">
+
+<div class="card">
+
+<!-- Logo -->
+
+<div class="logo">
+📖
+</div>
+
+<!-- Title -->
+
+<div class="title">
+STUDY-HUB
+</div>
+
+<div class="subtitle">
+Smart Student Strategy Portal <br>
+Plan • Prepare • Achieve
+</div>
+
+<div class="line"></div>
+
+<!-- Buttons -->
+
+<button class="btn primary-btn"
+onclick="window.location.href='portal.html'">
+
+Open Portal
+
+</button>
+
+<button class="btn secondary-btn"
+onclick="window.location.href='strategyhub.html'">
+
+Explore Strategies
+
+</button>
+
+<!-- Website -->
+
+<div class="website-box">
+
+<div class="website-title">
+Official Website
+</div>
+
+<a href="#"
+class="website-link">
+
+Upcoming Soon!!!
+
+</a>
+
+</div>
+
+<!-- Instagram -->
+
+<a href="https://instagram.com/_chirxg.08"
+target="_blank"
+class="insta-box">
+
+<div class="insta-row">
+
+<div class="insta-logo">
+📸
+</div>
+
+<div class="insta-content">
+
+<div class="follow">
+Follow Me On Instagram
+</div>
+
+<div class="tag">
+@_chirxg.08
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+<!-- Footer -->
+
+<div class="footer">
+
+© 2026–27 STUDY-HUB <br>
+Made with ❤️ by <span>chiragnemade08</span>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
