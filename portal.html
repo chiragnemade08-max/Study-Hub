@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STUDY-HUB Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    background:#f5f7ff;
+    min-height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Background */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:0.6;
+    animation:float 10s infinite ease-in-out;
+}
+
+.circle1{
+    width:300px;
+    height:300px;
+    background:#c4b5fd;
+    top:-120px;
+    left:-100px;
+}
+
+.circle2{
+    width:250px;
+    height:250px;
+    background:#bfdbfe;
+    bottom:-100px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+.circle3{
+    width:220px;
+    height:220px;
+    background:#fbcfe8;
+    top:45%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Main */
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    z-index:2;
+}
+
+/* Card */
+
+.card{
+    width:100%;
+    max-width:390px;
+
+    background:rgba(255,255,255,0.85);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:34px;
+
+    padding:34px 24px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    background:rgba(255,255,255,0.28);
+
+    border-radius:50%;
+
+    top:-90px;
+    right:-90px;
+}
+
+/* Back Button */
+
+.back-btn{
+    width:52px;
+    height:52px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 24px rgba(0,0,0,0.08);
+
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+
+/* Logo */
+
+.logo{
+    width:95px;
+    height:95px;
+
+    margin:40px auto 0;
+
+    border-radius:28px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:42px;
+
+    box-shadow:
+    0 12px 28px rgba(124,58,237,0.25);
+}
+
+/* Text */
+
+.title{
+    margin-top:24px;
+
+    font-size:38px;
+    font-weight:800;
+
+    color:#111827;
+}
+
+.subtitle{
+    margin-top:10px;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+/* Input */
+
+.input-box{
+    margin-top:28px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:16px 18px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.05);
+}
+
+.input-box span{
+    font-size:24px;
+}
+
+.input-box input{
+    border:none;
+    outline:none;
+    width:100%;
+
+    font-size:16px;
+    font-weight:600;
+
+    color:#111827;
+
+    background:transparent;
+}
+
+/* Button */
+
+.btn{
+    width:100%;
+
+    margin-top:22px;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    color:white;
+
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 24px rgba(124,58,237,0.22);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:24px;
+
+    color:#6b7280;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.footer span{
+    color:#111827;
+    font-weight:700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="bg">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+</div>
+
+<!-- Main -->
+
+<div class="container">
+
+<div class="card">
+
+<!-- Back -->
+
+<button class="back-btn"
+onclick="window.location.href='index.html'">
+
+←
+
+</button>
+
+<!-- Logo -->
+
+<div class="logo">
+👨‍🎓
+</div>
+
+<!-- Text -->
+
+<div class="title">
+Student Login
+</div>
+
+<div class="subtitle">
+Enter your Student ID to access<br>
+your personal strategy dashboard
+</div>
+
+<!-- Input -->
+
+<div class="input-box">
+
+<span>🪪</span>
+
+<input 
+type="text"
+id="studentId"
+placeholder="Enter Student ID">
+
+</div>
+
+<!-- Button -->
+
+<button class="btn"
+onclick="checkId()">
+
+Open Portal
+
+</button>
+
+<!-- Footer -->
+
+<div class="footer">
+
+Authorized Access Only <br>
+Powered by <span>STUDY-HUB</span>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function checkId(){
+
+    const id =
+    document.getElementById("studentId").value;
+
+    if(id === "STU10082009"){
+
+        window.location.href = "portal1.html";
+
+    }else{
+
+        alert("Invalid Student ID");
+    }
+}
+
+</script>
+
+</body>
+</html>
