@@ -1,0 +1,919 @@
+<!-- SAVE FILE AS : portal.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STUDY-HUB Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    text-decoration:none;
+}
+
+body{
+    background:#f5f7ff;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Background */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(110px);
+    opacity:0.65;
+    animation:float 8s infinite ease-in-out;
+}
+
+.circle1{
+    width:320px;
+    height:320px;
+    background:#c4b5fd;
+    top:-120px;
+    left:-120px;
+}
+
+.circle2{
+    width:250px;
+    height:250px;
+    background:#93c5fd;
+    bottom:-100px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+.circle3{
+    width:220px;
+    height:220px;
+    background:#fbcfe8;
+    top:45%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Main */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:430px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Header */
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:10px;
+}
+
+.back-btn{
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#111827;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+}
+
+.header-title{
+    font-size:22px;
+    font-weight:800;
+    color:#111827;
+}
+
+.header-sub{
+    color:#6b7280;
+    font-size:13px;
+    margin-top:3px;
+}
+
+/* Welcome Card */
+
+.welcome-card{
+    margin-top:28px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5,
+    #2563eb
+    );
+
+    border-radius:36px;
+
+    padding:30px;
+
+    color:white;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 45px rgba(124,58,237,0.28);
+}
+
+.welcome-card::before{
+    content:'';
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.10);
+
+    top:-110px;
+    right:-100px;
+}
+
+.logo-box{
+    width:95px;
+    height:95px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.14);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:42px;
+
+    backdrop-filter:blur(10px);
+}
+
+.welcome-title{
+    margin-top:28px;
+
+    font-size:50px;
+    font-weight:800;
+
+    line-height:1.1;
+}
+
+.welcome-sub{
+    margin-top:20px;
+
+    line-height:1.9;
+
+    font-size:15px;
+
+    color:#f5f3ff;
+}
+
+/* Student Profile */
+
+.profile-card{
+    margin-top:28px;
+
+    background:white;
+
+    border-radius:34px;
+
+    padding:28px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.06);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.profile-icon{
+    width:90px;
+    height:90px;
+
+    border-radius:28px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:42px;
+
+    box-shadow:
+    0 10px 24px rgba(124,58,237,0.22);
+}
+
+.profile-title{
+    font-size:22px;
+    font-weight:800;
+    color:#111827;
+}
+
+.profile-sub{
+    margin-top:5px;
+
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* Student Details */
+
+.student-card{
+    margin-top:24px;
+
+    background:linear-gradient(
+    135deg,
+    #f5f3ff,
+    #eef2ff
+    );
+
+    border-radius:28px;
+
+    padding:20px;
+
+    border:1px solid rgba(124,58,237,0.08);
+}
+
+.student-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.student-row:last-child{
+    border-bottom:none;
+}
+
+.student-label{
+    color:#6b7280;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.student-value{
+    color:#111827;
+
+    font-size:16px;
+    font-weight:800;
+}
+
+.student-status{
+    color:#22c55e;
+
+    font-size:16px;
+    font-weight:800;
+}
+
+/* Countdown */
+
+.countdown-card{
+    margin-top:28px;
+
+    background:white;
+
+    border-radius:34px;
+
+    padding:28px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.06);
+}
+
+.countdown-top{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.countdown-icon{
+    width:75px;
+    height:75px;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+}
+
+.count-title{
+    font-size:22px;
+    font-weight:800;
+    color:#111827;
+}
+
+.count-sub{
+    color:#6b7280;
+    font-size:13px;
+    margin-top:4px;
+}
+
+/* Timer */
+
+.timer{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:28px;
+}
+
+.time-box{
+    background:#f5f7ff;
+    border-radius:20px;
+    padding:18px 10px;
+    text-align:center;
+}
+
+.number{
+    font-size:28px;
+    font-weight:800;
+    color:#7c3aed;
+}
+
+.label{
+    margin-top:5px;
+    font-size:11px;
+    color:#6b7280;
+}
+
+/* Strategy Section */
+
+.strategy-section{
+    margin-top:28px;
+}
+
+.strategy-title{
+    font-size:24px;
+    font-weight:800;
+    color:#111827;
+    margin-bottom:18px;
+}
+
+.strategy-card{
+    background:white;
+    border-radius:28px;
+    padding:20px;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 12px 28px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.strategy-card:hover{
+    transform:translateY(-4px);
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.icon{
+    width:65px;
+    height:65px;
+    border-radius:22px;
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:28px;
+}
+
+.card-title{
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+}
+
+.card-sub{
+    margin-top:4px;
+    color:#6b7280;
+    font-size:13px;
+}
+
+.arrow{
+    font-size:26px;
+    color:#7c3aed;
+}
+
+/* Footer */
+
+.footer{
+    margin-top:32px;
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    padding-bottom:30px;
+}
+
+.footer span{
+    color:#111827;
+    font-weight:700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="bg">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+</div>
+
+<!-- Main -->
+
+<div class="container">
+
+<!-- Header -->
+
+<div class="header">
+
+<button class="back-btn"
+onclick="window.location.href='portal.html'">
+
+←
+
+</button>
+
+<div>
+
+<div class="header-title">
+Portal
+</div>
+
+<div class="header-sub">
+Student Learning Dashboard
+</div>
+
+</div>
+
+</div>
+
+<!-- Welcome -->
+
+<div class="welcome-card">
+
+<div class="logo-box">
+🎓
+</div>
+
+<div class="welcome-title">
+Welcome Back
+</div>
+
+<div class="welcome-sub">
+
+Access study material, strategies,
+priority chapters and preparation tools
+for Boards, MHT-CET & JEE Exams.
+
+</div>
+
+</div>
+
+<!-- Student Profile -->
+
+<div class="profile-card">
+
+<div class="profile-top">
+
+<div class="profile-icon">
+👨‍🎓
+</div>
+
+<div>
+
+<div class="profile-title">
+Student Profile
+</div>
+
+<div class="profile-sub">
+Personalized Strategy Access
+</div>
+
+</div>
+
+</div>
+
+<div class="student-card">
+
+<div class="student-row">
+
+<div class="student-label">
+Student Name
+</div>
+
+<div class="student-value">
+Chirag
+</div>
+
+</div>
+
+<div class="student-row">
+
+<div class="student-label">
+Student ID
+</div>
+
+<div class="student-value">
+STU10082009
+</div>
+
+</div>
+
+<div class="student-row">
+
+<div class="student-label">
+Target Exam
+</div>
+
+<div class="student-value">
+MHT-CET 2027
+</div>
+
+</div>
+
+<div class="student-row">
+
+<div class="student-label">
+Status
+</div>
+
+<div class="student-status">
+● Active
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Countdown -->
+
+<div class="countdown-card">
+
+<div class="countdown-top">
+
+<div class="countdown-icon">
+⏳
+</div>
+
+<div>
+
+<div class="count-title">
+MHT-CET 2027
+</div>
+
+<div class="count-sub">
+Countdown to 31 Oct 2026
+</div>
+
+</div>
+
+</div>
+
+<div class="timer">
+
+<div class="time-box">
+
+<div class="number" id="days">
+00
+</div>
+
+<div class="label">
+DAYS
+</div>
+
+</div>
+
+<div class="time-box">
+
+<div class="number" id="hours">
+00
+</div>
+
+<div class="label">
+HOURS
+</div>
+
+</div>
+
+<div class="time-box">
+
+<div class="number" id="minutes">
+00
+</div>
+
+<div class="label">
+MINUTES
+</div>
+
+</div>
+
+<div class="time-box">
+
+<div class="number" id="seconds">
+00
+</div>
+
+<div class="label">
+SECONDS
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Strategy Section -->
+
+<div class="strategy-section">
+
+<div class="strategy-title">
+Strategies
+</div>
+
+<!-- Preparation Timelines -->
+
+<a href="timeline.html">
+
+<div class="strategy-card">
+
+<div class="left">
+
+<div class="icon">
+📅
+</div>
+
+<div>
+
+<div class="card-title">
+Preparation Timelines
+</div>
+
+<div class="card-sub">
+Daily, weekly & monthly plans
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+</a>
+
+<!-- Subject Wise -->
+
+<a href="subjectstrategy.html">
+
+<div class="strategy-card">
+
+<div class="left">
+
+<div class="icon">
+📘
+</div>
+
+<div>
+
+<div class="card-title">
+Subject-Wise Strategy
+</div>
+
+<div class="card-sub">
+Physics, Chemistry & Maths
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+</a>
+
+<!-- Chapter Priority -->
+
+<a href="chapterpriority.html">
+
+<div class="strategy-card">
+
+<div class="left">
+
+<div class="icon">
+🔥
+</div>
+
+<div>
+
+<div class="card-title">
+Chapter Priority
+</div>
+
+<div class="card-sub">
+High-weightage important chapters
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+</a>
+
+<!-- Rank Strategy -->
+
+<a href="rankstrategy.html">
+
+<div class="strategy-card">
+
+<div class="left">
+
+<div class="icon">
+🏆
+</div>
+
+<div>
+
+<div class="card-title">
+Rank / Percentile Strategy
+</div>
+
+<div class="card-sub">
+Target rank & percentile plans
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+© 2026–27 STUDY-HUB <br>
+Made with ❤️ by <span>chiragnemade08</span>
+
+</div>
+
+</div>
+
+<script>
+
+const targetDate = new Date("October 31, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24))
+    / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+    (distance % (1000 * 60 * 60))
+    / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+    (distance % (1000 * 60))
+    / 1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>
