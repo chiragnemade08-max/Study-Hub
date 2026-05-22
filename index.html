@@ -19,21 +19,41 @@
     -webkit-tap-highlight-color:transparent;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+    180deg,
+    #7c3aed,
+    #3b82f6
+    );
+    border-radius:20px;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     min-height:100vh;
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
     position:relative;
 
     background:linear-gradient(
     135deg,
-    #eef2ff,
+    #f5f3ff,
     #fdf2f8,
     #eff6ff
     );
 }
 
-/* Animated Background */
+/* Background */
 
 .bg{
     position:fixed;
@@ -42,8 +62,6 @@ body{
     overflow:hidden;
     z-index:0;
 }
-
-/* Large Glow Balls */
 
 .circle{
     position:absolute;
@@ -79,7 +97,22 @@ body{
     animation-delay:4s;
 }
 
-/* Small Floating Dots */
+@keyframes float{
+
+    0%{
+        transform:translateY(0px) scale(1);
+    }
+
+    50%{
+        transform:translateY(-30px) scale(1.08);
+    }
+
+    100%{
+        transform:translateY(0px) scale(1);
+    }
+}
+
+/* Floating Dots */
 
 .dot{
     position:absolute;
@@ -112,37 +145,6 @@ body{
     animation-delay:4s;
 }
 
-.dot4{
-    width:8px;
-    height:8px;
-    top:30%;
-    left:75%;
-    animation-delay:1s;
-}
-
-.dot5{
-    width:11px;
-    height:11px;
-    top:82%;
-    left:20%;
-    animation-delay:3s;
-}
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px) scale(1);
-    }
-
-    50%{
-        transform:translateY(-30px) scale(1.08);
-    }
-
-    100%{
-        transform:translateY(0px) scale(1);
-    }
-}
-
 @keyframes move{
 
     0%{
@@ -166,7 +168,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:24px 16px;
     position:relative;
     z-index:2;
 }
@@ -177,15 +179,13 @@ body{
     width:100%;
     max-width:390px;
 
-    background:rgba(255,255,255,0.75);
+    background:rgba(255,255,255,0.78);
 
     backdrop-filter:blur(24px);
 
-    border:1px solid rgba(255,255,255,0.4);
+    border-radius:36px;
 
-    border-radius:34px;
-
-    padding:34px 24px;
+    padding:34px 22px;
 
     box-shadow:
     0 20px 45px rgba(0,0,0,0.08);
@@ -197,8 +197,6 @@ body{
     overflow:hidden;
 }
 
-/* Card Glow */
-
 .card::before{
     content:'';
     position:absolute;
@@ -206,7 +204,7 @@ body{
     width:220px;
     height:220px;
 
-    background:rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.28);
 
     border-radius:50%;
 
@@ -264,7 +262,7 @@ body{
 .title{
     margin-top:22px;
 
-    font-size:40px;
+    font-size:42px;
     font-weight:800;
 
     color:#111827;
@@ -305,11 +303,11 @@ body{
     border:none;
     outline:none;
 
-    padding:16px;
+    padding:17px;
 
     border-radius:18px;
 
-    font-size:16px;
+    font-size:17px;
     font-weight:700;
 
     cursor:pointer;
@@ -346,14 +344,14 @@ body{
     transform:translateY(-3px);
 }
 
-/* Website Box */
+/* Website */
 
 .website-box{
-    margin-top:10px;
+    margin-top:12px;
 
-    padding:18px;
+    padding:20px;
 
-    border-radius:22px;
+    border-radius:24px;
 
     background:white;
 
@@ -370,42 +368,91 @@ body{
 .website-link{
     display:block;
 
-    margin-top:6px;
+    margin-top:8px;
 
     color:#7c3aed;
 
-    font-size:18px;
-    font-weight:700;
+    font-size:20px;
+    font-weight:800;
 }
 
-/* Instagram Box */
+/* Features */
 
-.insta-box{
-    width:100%;
-    margin-top:14px;
+.features-box{
+    margin-top:18px;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:24px;
+
+    text-align:left;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.05);
+}
+
+.features-title{
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:14px;
+}
+
+.feature{
     padding:14px;
     border-radius:18px;
-    background:white;
+    margin-bottom:12px;
+
+    background:linear-gradient(
+    135deg,
+    #f5f3ff,
+    #eff6ff
+    );
+
+    color:#374151;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+/* Instagram */
+
+.insta-box{
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:26px;
+
+    background:linear-gradient(
+    135deg,
+    #ffffff,
+    #fdf2f8
+    );
+
     box-shadow:
-    0 6px 18px rgba(0,0,0,0.05);
+    0 10px 28px rgba(0,0,0,0.06);
+
     transition:0.3s;
-    display:block;
 }
 
 .insta-box:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
-.insta-row{
+.insta-top{
     display:flex;
     align-items:center;
     gap:14px;
 }
 
 .insta-logo{
-    width:46px;
-    height:46px;
-    border-radius:14px;
+    width:58px;
+    height:58px;
+
+    border-radius:20px;
 
     background:linear-gradient(
     135deg,
@@ -421,42 +468,73 @@ body{
     align-items:center;
 
     color:white;
-    font-size:22px;
 
-    flex-shrink:0;
+    font-size:28px;
+
+    box-shadow:
+    0 8px 20px rgba(214,41,118,0.25);
 }
 
 .insta-content{
     text-align:left;
 }
 
-.follow{
+.insta-title{
+    font-size:13px;
     color:#6b7280;
-    font-size:12px;
-    font-weight:500;
+    font-weight:600;
 }
 
-.tag{
-    margin-top:5px;
+.insta-name{
+    margin-top:4px;
 
-    display:inline-block;
+    font-size:20px;
+    font-weight:800;
 
-    padding:5px 12px;
+    background:linear-gradient(
+    90deg,
+    #d62976,
+    #7c3aed
+    );
 
-    border-radius:50px;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-    background:#fdf2f8;
+.follow-btn{
+    margin-top:16px;
 
-    color:#d62976;
+    width:100%;
 
-    font-size:12px;
+    padding:13px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+    135deg,
+    #d62976,
+    #7c3aed
+    );
+
+    color:white;
+
+    font-size:14px;
     font-weight:700;
+
+    cursor:pointer;
+
+    font-family:'Poppins',sans-serif;
+
+    box-shadow:
+    0 8px 20px rgba(214,41,118,0.22);
 }
 
 /* Footer */
 
 .footer{
-    margin-top:22px;
+    margin-top:24px;
 
     color:#6b7280;
 
@@ -487,8 +565,6 @@ body{
 <div class="dot dot1"></div>
 <div class="dot dot2"></div>
 <div class="dot dot3"></div>
-<div class="dot dot4"></div>
-<div class="dot dot5"></div>
 
 </div>
 
@@ -550,13 +626,37 @@ Upcoming Soon!!!
 
 </div>
 
+<!-- Features First -->
+
+<div class="features-box">
+
+<div class="features-title">
+🔥 Features
+</div>
+
+<div class="feature">
+📅 Daily Study Timelines
+</div>
+
+<div class="feature">
+🎯 JEE / CET Preparation Strategies
+</div>
+
+<div class="feature">
+🏆 Rank & Percentile Planning
+</div>
+
+<div class="feature">
+📚 Chapter Wise Priority
+</div>
+
+</div>
+
 <!-- Instagram -->
 
-<a href="https://instagram.com/_chirxg.08"
-target="_blank"
-class="insta-box">
+<div class="insta-box">
 
-<div class="insta-row">
+<div class="insta-top">
 
 <div class="insta-logo">
 📸
@@ -564,11 +664,11 @@ class="insta-box">
 
 <div class="insta-content">
 
-<div class="follow">
+<div class="insta-title">
 Follow Me On Instagram
 </div>
 
-<div class="tag">
+<div class="insta-name">
 @_chirxg.08
 </div>
 
@@ -576,7 +676,14 @@ Follow Me On Instagram
 
 </div>
 
-</a>
+<button class="follow-btn"
+onclick="window.open('https://instagram.com/_chirxg.08')">
+
+Follow Now
+
+</button>
+
+</div>
 
 <!-- Footer -->
 
