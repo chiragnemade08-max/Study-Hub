@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Study Resources</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8faff;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* Background */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+z-index:0;
+overflow:hidden;
+}
+
+.glow{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.5;
+}
+
+.glow1{
+width:300px;
+height:300px;
+background:#c4b5fd;
+top:-100px;
+left:-100px;
+}
+
+.glow2{
+width:250px;
+height:250px;
+background:#93c5fd;
+bottom:-80px;
+right:-80px;
+}
+
+.container{
+position:relative;
+z-index:2;
+max-width:430px;
+margin:auto;
+padding:20px;
+}
+
+/* Header */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+}
+
+.back-btn{
+width:55px;
+height:55px;
+border:none;
+border-radius:18px;
+background:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.title{
+font-size:24px;
+font-weight:800;
+color:#111827;
+}
+
+.subtitle{
+font-size:13px;
+color:#6b7280;
+margin-top:3px;
+}
+
+/* Hero */
+
+.hero{
+background:linear-gradient(135deg,#7c3aed,#4f46e5,#2563eb);
+padding:28px;
+border-radius:30px;
+color:white;
+box-shadow:0 18px 45px rgba(124,58,237,.25);
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:32px;
+font-weight:800;
+}
+
+.hero p{
+margin-top:10px;
+font-size:14px;
+line-height:1.8;
+color:#ede9fe;
+}
+
+/* Cards */
+
+.grid{
+display:grid;
+gap:18px;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:26px;
+box-shadow:0 10px 28px rgba(0,0,0,.06);
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:34px;
+}
+
+.card-title{
+margin-top:10px;
+font-size:20px;
+font-weight:800;
+color:#111827;
+}
+
+.card-desc{
+margin-top:8px;
+font-size:13px;
+line-height:1.7;
+color:#6b7280;
+}
+
+.open-btn{
+display:inline-block;
+margin-top:16px;
+padding:10px 16px;
+border-radius:14px;
+background:linear-gradient(135deg,#7c3aed,#4f46e5);
+color:white;
+font-size:12px;
+font-weight:700;
+text-decoration:none;
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+margin-top:30px;
+font-size:12px;
+color:#6b7280;
+line-height:1.8;
+}
+
+.footer span{
+font-weight:700;
+color:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+</div>
+
+<div class="container">
+
+<div class="header">
+
+<button class="back-btn"
+onclick="window.location.href='index.html'">
+←
+</button>
+
+<div>
+<div class="title">Study Resources</div>
+<div class="subtitle">Books, Notes & Practice Material</div>
+</div>
+
+</div>
+
+<div class="hero">
+
+<h1>📚 Resource Hub</h1>
+
+<p>
+Access textbooks, solved examples,
+important questions, PYQs and more.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📘</div>
+<div class="card-title">Textbooks</div>
+<div class="card-desc">
+Official Board, CET & JEE books.
+</div>
+<a href="textbooks.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<div class="card-title">Notes</div>
+<div class="card-desc">
+Short notes and revision material.
+</div>
+<a href="notes.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">✅</div>
+<div class="card-title">Solved Examples</div>
+<div class="card-desc">
+Chapter-wise solved questions.
+</div>
+<a href="solvedexamples.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">❓</div>
+<div class="card-title">Important Questions</div>
+<div class="card-desc">
+Most expected exam questions.
+</div>
+<a href="importantquestions.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">📄</div>
+<div class="card-title">PYQs</div>
+<div class="card-desc">
+Previous year question papers.
+</div>
+<a href="pyqs.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">📐</div>
+<div class="card-title">Formula Sheets</div>
+<div class="card-desc">
+Quick revision formulas.
+</div>
+<a href="formulasheets.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">📊</div>
+<div class="card-title">Practice Papers</div>
+<div class="card-desc">
+Mock tests and practice sets.
+</div>
+<a href="practicepapers.html" class="open-btn">
+Open
+</a>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<div class="card-title">Exam Resources</div>
+<div class="card-desc">
+Boards, MHT-CET & JEE preparation.
+</div>
+<a href="examresources.html" class="open-btn">
+Open
+</a>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026–27 STUDY-HUB <br>
+Made with ❤️ by <span>chiragnemade08</span>
+</div>
+
+</div>
+
+</body>
+</html>
