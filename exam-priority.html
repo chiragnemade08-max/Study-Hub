@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Exam Priority</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7ff;
+padding:20px;
+overflow-x:hidden;
+}
+
+/* Background Glow */
+
+body::before{
+content:'';
+position:fixed;
+width:320px;
+height:320px;
+background:#8b5cf6;
+filter:blur(140px);
+top:-120px;
+left:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:300px;
+height:300px;
+background:#3b82f6;
+filter:blur(140px);
+bottom:-120px;
+right:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+.container{
+max-width:430px;
+margin:auto;
+}
+
+/* Header */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.back-btn{
+width:55px;
+height:55px;
+border:none;
+border-radius:18px;
+background:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.back-btn:hover{
+transform:scale(1.05);
+background:#ede9fe;
+}
+
+.header-title{
+font-size:24px;
+font-weight:bold;
+color:#111827;
+}
+
+.header-sub{
+font-size:13px;
+color:#6b7280;
+}
+
+/* Hero */
+
+.hero{
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#5b21b6,
+#2563eb);
+
+padding:35px;
+border-radius:32px;
+color:white;
+box-shadow:0 18px 40px rgba(124,58,237,.28);
+position:relative;
+overflow:hidden;
+margin-bottom:28px;
+
+}
+
+.hero::after{
+
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,255,255,.12);
+border-radius:50%;
+top:-60px;
+right:-60px;
+
+}
+
+.hero-icon{
+font-size:48px;
+}
+
+.hero-title{
+font-size:32px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.hero-sub{
+margin-top:12px;
+line-height:1.8;
+font-size:15px;
+color:#ede9fe;
+}
+
+/* Exam Cards */
+
+.exam-card{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.95);
+
+padding:22px;
+
+margin-bottom:18px;
+
+border-radius:24px;
+
+box-shadow:0 12px 30px rgba(124,58,237,.12);
+
+text-decoration:none;
+
+color:#111827;
+
+transition:.35s;
+
+border:2px solid transparent;
+
+}
+
+.exam-card:hover{
+
+transform:translateY(-6px);
+
+border-color:#7c3aed;
+
+box-shadow:0 20px 40px rgba(124,58,237,.20);
+
+}
+
+.exam-left{
+
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+.exam-icon{
+
+width:65px;
+height:65px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#8b5cf6,
+#2563eb);
+
+font-size:34px;
+color:white;
+
+}
+
+.badge{
+
+display:inline-block;
+background:#22c55e;
+color:white;
+
+padding:4px 10px;
+
+border-radius:30px;
+
+font-size:11px;
+
+font-weight:bold;
+
+margin-bottom:6px;
+
+}
+
+.exam-name{
+
+font-size:22px;
+font-weight:bold;
+
+}
+
+.exam-desc{
+
+font-size:13px;
+color:#6b7280;
+margin-top:4px;
+
+}
+
+.arrow{
+
+width:45px;
+height:45px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#ede9fe;
+
+font-size:24px;
+
+color:#7c3aed;
+
+font-weight:bold;
+
+}
+
+/* Footer */
+
+.footer{
+
+margin-top:30px;
+
+background:white;
+
+padding:25px;
+
+border-radius:22px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.footer-text{
+
+font-size:14px;
+
+color:#4b5563;
+
+margin-bottom:6px;
+
+}
+
+.footer-made{
+
+font-size:14px;
+
+color:#6b7280;
+
+}
+
+.footer-made b{
+
+color:#7c3aed;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Header -->
+
+<div class="header">
+
+<button class="back-btn"
+onclick="history.back()">
+
+←
+
+</button>
+
+<div>
+
+<div class="header-title">
+Exam Priority
+</div>
+
+<div class="header-sub">
+Choose Your Examination
+</div>
+
+</div>
+
+</div>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<div class="hero-icon">
+🏆
+</div>
+
+<div class="hero-title">
+Exam Priority
+</div>
+
+<div class="hero-sub">
+
+Select your entrance examination and view
+chapter-wise priority designed according
+to the latest exam pattern.
+
+</div>
+
+</div>
+
+<!-- JEE Main -->
+
+<a href="jee-main-priority.html"
+class="exam-card">
+
+<div class="exam-left">
+
+<div class="exam-icon">
+📘
+</div>
+
+<div>
+
+<div class="badge">
+POPULAR
+</div>
+
+<div class="exam-name">
+JEE Main
+</div>
+
+<div class="exam-desc">
+Chapter Priority
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a>
+
+<!-- JEE Advanced -->
+
+<a href="jee-advanced-priority.html"
+class="exam-card">
+
+<div class="exam-left">
+
+<div class="exam-icon">
+🚀
+</div>
+
+<div>
+
+<div class="badge">
+ADVANCED
+</div>
+
+<div class="exam-name">
+JEE Advanced
+</div>
+
+<div class="exam-desc">
+Chapter Priority
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a>
+
+<!-- MHT-CET -->
+
+<a href="mht-cet-priority.html"
+class="exam-card">
+
+<div class="exam-left">
+
+<div class="exam-icon">
+🎯
+</div>
+
+<div>
+
+<div class="badge">
+STATE LEVEL
+</div>
+
+<div class="exam-name">
+MHT-CET
+</div>
+
+<div class="exam-desc">
+Chapter Priority
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<div class="footer-text">
+
+© 2026–27 STUDY-HUB
+
+</div>
+
+<div class="footer-made">
+
+Made with ❤️ by <b>chiragnemade08</b>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+  </html>
