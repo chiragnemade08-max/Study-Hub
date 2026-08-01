@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>MHT-CET Chapter Priority</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',Arial,sans-serif;
+}
+
+body{
+background:#f6f8ff;
+padding:20px;
+overflow-x:hidden;
+}
+
+/* Background Glow */
+
+body::before{
+content:'';
+position:fixed;
+width:350px;
+height:350px;
+background:#8b5cf6;
+filter:blur(150px);
+top:-120px;
+left:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:320px;
+height:320px;
+background:#3b82f6;
+filter:blur(150px);
+bottom:-120px;
+right:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+.container{
+max-width:430px;
+margin:auto;
+}
+
+/* Header */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+}
+
+.back-btn{
+
+width:55px;
+height:55px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:white;
+
+border-radius:18px;
+
+text-decoration:none;
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#7c3aed;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.back-btn:hover{
+
+transform:translateY(-4px);
+
+}
+
+.page-title{
+
+font-size:24px;
+
+font-weight:800;
+
+color:#111827;
+
+}
+
+.page-sub{
+
+font-size:14px;
+
+color:#6b7280;
+
+margin-top:3px;
+
+}
+
+/* Hero */
+
+.hero{
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#5b21b6,
+#2563eb);
+
+padding:32px;
+
+border-radius:30px;
+
+color:white;
+
+box-shadow:0 20px 45px rgba(124,58,237,.25);
+
+position:relative;
+
+overflow:hidden;
+
+margin-bottom:28px;
+
+}
+
+.hero::after{
+
+content:'';
+
+position:absolute;
+
+width:180px;
+height:180px;
+
+background:rgba(255,255,255,.10);
+
+border-radius:50%;
+
+top:-60px;
+right:-60px;
+
+}
+
+.hero-icon{
+
+font-size:50px;
+
+}
+
+.hero-title{
+
+font-size:34px;
+
+font-weight:800;
+
+margin-top:12px;
+
+}
+
+.hero-sub{
+
+margin-top:12px;
+
+font-size:15px;
+
+line-height:1.8;
+
+color:#ede9fe;
+
+}
+
+/* Subject Cards */
+
+.subject-card{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:white;
+
+padding:22px;
+
+border-radius:24px;
+
+margin-bottom:18px;
+
+box-shadow:0 12px 30px rgba(124,58,237,.10);
+
+text-decoration:none;
+
+color:#111827;
+
+transition:.35s;
+
+border:2px solid transparent;
+
+}
+
+.subject-card:hover{
+
+transform:translateY(-5px);
+
+border-color:#7c3aed;
+
+box-shadow:0 18px 40px rgba(124,58,237,.18);
+
+}
+
+.subject-left{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.subject-icon{
+
+width:65px;
+height:65px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#8b5cf6,
+#2563eb);
+
+font-size:34px;
+
+color:white;
+
+}
+
+.subject-name{
+
+font-size:22px;
+
+font-weight:700;
+
+}
+
+.subject-desc{
+
+font-size:13px;
+
+color:#6b7280;
+
+margin-top:4px;
+
+}
+
+.arrow{
+
+width:45px;
+height:45px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#ede9fe;
+
+font-size:24px;
+
+color:#7c3aed;
+
+font-weight:bold;
+
+}
+
+/* Footer */
+
+.footer{
+
+margin-top:35px;
+
+background:white;
+
+padding:25px;
+
+border-radius:24px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Header -->
+
+<div class="header">
+
+<a href="exam-priority.html"
+class="back-btn">
+
+←
+
+</a>
+
+<div>
+
+<div class="page-title">
+
+MHT-CET
+
+</div>
+
+<div class="page-sub">
+
+Chapter Priority
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<div class="hero-icon">
+
+🎯
+
+</div>
+
+<div class="hero-title">
+
+MHT-CET
+
+</div>
+
+<div class="hero-sub">
+
+Choose your subject to view
+chapter-wise priority prepared
+according to the latest
+MHT-CET examination pattern.
+
+</div>
+
+</div><!-- ================================= -->
+<!-- PHYSICS -->
+<!-- ================================= -->
+
+<a href="mht-physics-priority.html"
+class="subject-card">
+
+<div class="subject-left">
+
+<div class="subject-icon">
+⚛️
+</div>
+
+<div>
+
+<div class="subject-name">
+Physics
+</div>
+
+<div class="subject-desc">
+
+High Weightage Chapters
+
+<br>
+
+Mechanics • Electricity • Modern Physics
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a>
+
+<!-- ================================= -->
+<!-- CHEMISTRY -->
+<!-- ================================= -->
+
+<a href="mht-chemistry-priority.html"
+class="subject-card">
+
+<div class="subject-left">
+
+<div class="subject-icon">
+🧪
+</div>
+
+<div>
+
+<div class="subject-name">
+Chemistry
+</div>
+
+<div class="subject-desc">
+
+Most Scoring Chapters
+
+<br>
+
+Organic • Physical • Inorganic
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a><!-- ================================= -->
+<!-- MATHEMATICS -->
+<!-- ================================= -->
+
+<a href="mht-maths-priority.html"
+class="subject-card">
+
+<div class="subject-left">
+
+<div class="subject-icon">
+📐
+</div>
+
+<div>
+
+<div class="subject-name">
+Mathematics
+</div>
+
+<div class="subject-desc">
+
+Most Important Chapters
+
+<br>
+
+Calculus • Algebra • Coordinate Geometry
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+➜
+</div>
+
+</a>
+
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
+
+<div class="footer">
+
+<div class="footer-logo">
+
+
+</div>
+
+
+
+<div class="footer-line"></div>
+
+<div class="footer-copy">
+
+© 2026–27 <b>STUDY-HUB</b>
+
+</div>
+
+<div class="footer-made">
+
+Made with ❤️ by <b>chiragnemade08</b>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================================= -->
+<!-- END OF CONTAINER -->
+<!-- ================================= -->
+
+</body>
+</html>
