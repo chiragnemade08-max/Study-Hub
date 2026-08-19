@@ -8,215 +8,434 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>MHT-CET Chapter Priority</title>
+<title>MHT-CET 2027</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',Arial,sans-serif;
+font-family:Arial,sans-serif;
 }
+
+
+/* =========================
+   BODY
+========================= */
 
 body{
-background:#f6f8ff;
+
+background:#f4f6ff;
+
+color:#111827;
+
 padding:20px;
+
 overflow-x:hidden;
-}
-
-/* Background Glow */
-
-body::before{
-content:'';
-position:fixed;
-width:350px;
-height:350px;
-background:#8b5cf6;
-filter:blur(150px);
-top:-120px;
-left:-120px;
-opacity:.30;
-z-index:-1;
-}
-
-body::after{
-content:'';
-position:fixed;
-width:320px;
-height:320px;
-background:#3b82f6;
-filter:blur(150px);
-bottom:-120px;
-right:-120px;
-opacity:.30;
-z-index:-1;
-}
-
-.container{
-max-width:430px;
-margin:auto;
-}
-
-/* Header */
-
-.header{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:25px;
-}
-
-.back-btn{
-
-width:55px;
-height:55px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:white;
-
-border-radius:18px;
-
-text-decoration:none;
-
-font-size:28px;
-
-font-weight:bold;
-
-color:#7c3aed;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 transition:.3s;
 
 }
 
-.back-btn:hover{
 
-transform:translateY(-4px);
+/* Background Glow */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:350px;
+
+height:350px;
+
+background:#8b5cf6;
+
+filter:blur(150px);
+
+top:-150px;
+
+left:-150px;
+
+opacity:.25;
+
+z-index:-1;
 
 }
 
-.page-title{
+body::after{
 
-font-size:24px;
+content:"";
 
-font-weight:800;
+position:fixed;
 
-color:#111827;
+width:350px;
+
+height:350px;
+
+background:#3b82f6;
+
+filter:blur(150px);
+
+bottom:-150px;
+
+right:-150px;
+
+opacity:.25;
+
+z-index:-1;
 
 }
 
-.page-sub{
 
-font-size:14px;
+/* =========================
+   CONTAINER
+========================= */
 
-color:#6b7280;
+.container{
 
-margin-top:3px;
+max-width:430px;
+
+margin:auto;
 
 }
 
-/* Hero */
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-bottom:20px;
+
+}
+
+.back-btn,
+.theme-btn{
+
+width:50px;
+
+height:50px;
+
+border:none;
+
+border-radius:17px;
+
+background:white;
+
+font-size:23px;
+
+cursor:pointer;
+
+box-shadow:
+0 8px 22px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.back-btn:hover,
+.theme-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
 
-background:linear-gradient(
+background:
+linear-gradient(
 135deg,
 #7c3aed,
 #5b21b6,
-#2563eb);
+#2563eb
+);
 
-padding:32px;
+padding:30px;
 
-border-radius:30px;
+border-radius:32px;
 
 color:white;
-
-box-shadow:0 20px 45px rgba(124,58,237,.25);
 
 position:relative;
 
 overflow:hidden;
 
-margin-bottom:28px;
+box-shadow:
+0 18px 45px rgba(91,33,182,.28);
+
+margin-bottom:25px;
 
 }
 
-.hero::after{
+.hero::before{
 
-content:'';
+content:"";
 
 position:absolute;
 
 width:180px;
+
 height:180px;
 
 background:rgba(255,255,255,.10);
 
 border-radius:50%;
 
-top:-60px;
-right:-60px;
+top:-70px;
+
+right:-50px;
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:100px;
+
+height:100px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:50%;
+
+bottom:-50px;
+
+left:-30px;
 
 }
 
 .hero-icon{
 
-font-size:50px;
+font-size:45px;
+
+position:relative;
+
+z-index:1;
 
 }
 
 .hero-title{
 
-font-size:34px;
+font-size:31px;
 
 font-weight:800;
 
-margin-top:12px;
+margin-top:10px;
+
+position:relative;
+
+z-index:1;
 
 }
 
 .hero-sub{
 
-margin-top:12px;
-
 font-size:15px;
 
 line-height:1.8;
 
+margin-top:10px;
+
 color:#ede9fe;
+
+position:relative;
+
+z-index:1;
 
 }
 
-/* Subject Cards */
+
+/* =========================
+   COUNTDOWN CARD
+========================= */
+
+.countdown-card{
+
+background:white;
+
+border-radius:32px;
+
+padding:25px;
+
+margin-bottom:32px;
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.countdown-header{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+margin-bottom:25px;
+
+}
+
+.countdown-icon{
+
+width:70px;
+
+height:70px;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:38px;
+
+box-shadow:
+0 8px 20px rgba(99,102,241,.25);
+
+}
+
+.countdown-title{
+
+font-size:24px;
+
+font-weight:800;
+
+}
+
+.countdown-sub{
+
+font-size:14px;
+
+color:#6b7280;
+
+margin-top:6px;
+
+}
+
+
+/* =========================
+   COUNTDOWN BOXES
+========================= */
+
+.countdown{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:10px;
+
+}
+
+.time-box{
+
+background:#f5f7ff;
+
+border-radius:20px;
+
+padding:16px 5px;
+
+text-align:center;
+
+}
+
+.time-number{
+
+font-size:31px;
+
+font-weight:800;
+
+color:#7c3aed;
+
+}
+
+.time-label{
+
+font-size:12px;
+
+color:#6b7280;
+
+margin-top:7px;
+
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+font-size:29px;
+
+font-weight:800;
+
+margin-bottom:18px;
+
+}
+
+
+/* =========================
+   SUBJECT CARDS
+========================= */
 
 .subject-card{
 
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
+
+justify-content:space-between;
 
 background:white;
 
-padding:22px;
+padding:20px;
 
-border-radius:24px;
+border-radius:27px;
 
 margin-bottom:18px;
-
-box-shadow:0 12px 30px rgba(124,58,237,.10);
 
 text-decoration:none;
 
 color:#111827;
 
-transition:.35s;
+box-shadow:
+0 10px 30px rgba(0,0,0,.07);
+
+transition:.3s;
 
 border:2px solid transparent;
 
@@ -228,7 +447,8 @@ transform:translateY(-5px);
 
 border-color:#7c3aed;
 
-box-shadow:0 18px 40px rgba(124,58,237,.18);
+box-shadow:
+0 18px 35px rgba(124,58,237,.15);
 
 }
 
@@ -238,30 +458,62 @@ display:flex;
 
 align-items:center;
 
-gap:18px;
+gap:17px;
 
 }
 
 .subject-icon{
 
 width:65px;
+
 height:65px;
+
+border-radius:20px;
 
 display:flex;
 
 align-items:center;
+
 justify-content:center;
 
-border-radius:18px;
-
-background:linear-gradient(
-135deg,
-#8b5cf6,
-#2563eb);
-
-font-size:34px;
+font-size:33px;
 
 color:white;
+
+flex-shrink:0;
+
+}
+
+.physics{
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#4f46e5
+);
+
+}
+
+.chemistry{
+
+background:
+linear-gradient(
+135deg,
+#16a34a,
+#059669
+);
+
+}
+
+.maths{
+
+background:
+linear-gradient(
+135deg,
+#f97316,
+#ea580c
+);
 
 }
 
@@ -269,7 +521,7 @@ color:white;
 
 font-size:22px;
 
-font-weight:700;
+font-weight:800;
 
 }
 
@@ -279,46 +531,213 @@ font-size:13px;
 
 color:#6b7280;
 
-margin-top:4px;
+margin-top:5px;
+
+line-height:1.5;
 
 }
 
 .arrow{
 
-width:45px;
-height:45px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:50%;
-
-background:#ede9fe;
-
-font-size:24px;
-
-color:#7c3aed;
+font-size:25px;
 
 font-weight:bold;
 
+color:#7c3aed;
+
+padding-left:10px;
+
 }
 
-/* Footer */
+
+/* =========================
+   INFO CARD
+========================= */
+
+.info-card{
+
+background:white;
+
+border-radius:27px;
+
+padding:22px;
+
+margin-top:25px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.07);
+
+}
+
+.info-title{
+
+font-size:20px;
+
+font-weight:800;
+
+color:#7c3aed;
+
+margin-bottom:10px;
+
+}
+
+.info-text{
+
+font-size:14px;
+
+color:#6b7280;
+
+line-height:1.8;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
-
-margin-top:35px;
 
 background:white;
 
 padding:25px;
 
-border-radius:24px;
+border-radius:27px;
 
 text-align:center;
 
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+margin-top:28px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.07);
+
+}
+
+.footer-title{
+
+font-size:22px;
+
+font-weight:800;
+
+color:#7c3aed;
+
+margin-bottom:10px;
+
+}
+
+.footer-text{
+
+font-size:14px;
+
+color:#6b7280;
+
+line-height:1.8;
+
+}
+
+.footer-name{
+
+font-weight:800;
+
+color:#7c3aed;
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+
+background:#111827;
+
+color:#f9fafb;
+
+}
+
+body.dark .back-btn,
+body.dark .theme-btn,
+body.dark .countdown-card,
+body.dark .subject-card,
+body.dark .info-card,
+body.dark .footer{
+
+background:#1f2937;
+
+color:#f9fafb;
+
+}
+
+body.dark .subject-name{
+
+color:#f9fafb;
+
+}
+
+body.dark .countdown-sub,
+body.dark .subject-desc,
+body.dark .info-text,
+body.dark .footer-text{
+
+color:#9ca3af;
+
+}
+
+body.dark .time-box{
+
+background:#111827;
+
+}
+
+body.dark .theme-btn{
+
+color:#f9fafb;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:360px){
+
+body{
+
+padding:14px;
+
+}
+
+.hero{
+
+padding:25px;
+
+}
+
+.hero-title{
+
+font-size:28px;
+
+}
+
+.countdown-card{
+
+padding:20px;
+
+}
+
+.time-number{
+
+font-size:25px;
+
+}
+
+.subject-name{
+
+font-size:20px;
+
+}
 
 }
 
@@ -326,40 +745,46 @@ box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-<!-- Header -->
 
-<div class="header">
+<!-- =========================
+     TOP BAR
+========================= -->
 
-<a href="exam-priority.html"
-class="back-btn">
+<div class="topbar">
+
+
+<!-- BACK TO CHAPTER PRIORITY -->
+
+<button class="back-btn"
+onclick="window.location.href='chapter-priority.html'">
 
 ←
 
-</a>
+</button>
 
-<div>
 
-<div class="page-title">
+<!-- DARK MODE -->
 
-MHT-CET
+<button class="theme-btn"
+id="themeToggle">
 
-</div>
+🌙
 
-<div class="page-sub">
+</button>
 
-Chapter Priority
-
-</div>
 
 </div>
 
-</div>
 
-<!-- Hero -->
+<!-- =========================
+     HERO
+========================= -->
 
 <div class="hero">
 
@@ -371,168 +796,538 @@ Chapter Priority
 
 <div class="hero-title">
 
-MHT-CET
+MHT-CET 2027
 
 </div>
 
 <div class="hero-sub">
 
-Choose your subject to view
-chapter-wise priority prepared
-according to the latest
-MHT-CET examination pattern.
+Prepare smartly for MHT-CET 2027
+with chapter-wise priority,
+important chapters and
+exam-focused preparation.
 
 </div>
 
-</div><!-- ================================= -->
+</div>
+
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<div class="countdown-card">
+
+
+<div class="countdown-header">
+
+
+<div class="countdown-icon">
+
+⏳
+
+</div>
+
+
+<div>
+
+<div class="countdown-title">
+
+MHT-CET 2027
+
+</div>
+
+<div class="countdown-sub">
+
+Countdown to 31 Oct 2026
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="countdown">
+
+
+<div class="time-box">
+
+<div class="time-number"
+id="days">
+
+00
+
+</div>
+
+<div class="time-label">
+
+DAYS
+
+</div>
+
+</div>
+
+
+<div class="time-box">
+
+<div class="time-number"
+id="hours">
+
+00
+
+</div>
+
+<div class="time-label">
+
+HOURS
+
+</div>
+
+</div>
+
+
+<div class="time-box">
+
+<div class="time-number"
+id="minutes">
+
+00
+
+</div>
+
+<div class="time-label">
+
+MINUTES
+
+</div>
+
+</div>
+
+
+<div class="time-box">
+
+<div class="time-number"
+id="seconds">
+
+00
+
+</div>
+
+<div class="time-label">
+
+SECONDS
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CHAPTERS
+========================= -->
+
+<div class="section-title">
+
+Chapters
+
+</div>
+
+
 <!-- PHYSICS -->
-<!-- ================================= -->
 
-<a href="mht-physics-priority.html"
+<a href="mht-cet-physics.html"
 class="subject-card">
+
 
 <div class="subject-left">
 
-<div class="subject-icon">
+
+<div class="subject-icon physics">
+
 ⚛️
+
 </div>
+
 
 <div>
 
 <div class="subject-name">
+
 Physics
+
 </div>
 
 <div class="subject-desc">
 
-High Weightage Chapters
-
-<br>
-
-Mechanics • Electricity • Modern Physics
+Chapter-wise priority &
+weightage for Physics
 
 </div>
 
 </div>
 
+
 </div>
+
 
 <div class="arrow">
-➜
+
+›
+
 </div>
+
 
 </a>
 
-<!-- ================================= -->
+
 <!-- CHEMISTRY -->
-<!-- ================================= -->
 
-<a href="mht-chemistry-priority.html"
+<a href="mht-cet-chemistry.html"
 class="subject-card">
+
 
 <div class="subject-left">
 
-<div class="subject-icon">
+
+<div class="subject-icon chemistry">
+
 🧪
+
 </div>
+
 
 <div>
 
 <div class="subject-name">
+
 Chemistry
+
 </div>
 
 <div class="subject-desc">
 
-Most Scoring Chapters
-
-<br>
-
-Organic • Physical • Inorganic
+Chapter-wise priority &
+weightage for Chemistry
 
 </div>
 
 </div>
 
+
 </div>
+
 
 <div class="arrow">
-➜
-</div>
 
-</a><!-- ================================= -->
-<!-- MATHEMATICS -->
-<!-- ================================= -->
-
-<a href="mht-maths-priority.html"
-class="subject-card">
-
-<div class="subject-left">
-
-<div class="subject-icon">
-📐
-</div>
-
-<div>
-
-<div class="subject-name">
-Mathematics
-</div>
-
-<div class="subject-desc">
-
-Most Important Chapters
-
-<br>
-
-Calculus • Algebra • Coordinate Geometry
+›
 
 </div>
 
-</div>
-
-</div>
-
-<div class="arrow">
-➜
-</div>
 
 </a>
 
-<!-- ================================= -->
-<!-- FOOTER -->
-<!-- ================================= -->
+
+<!-- MATHEMATICS -->
+
+<a href="mht-cet-maths.html"
+class="subject-card">
+
+
+<div class="subject-left">
+
+
+<div class="subject-icon maths">
+
+📐
+
+</div>
+
+
+<div>
+
+<div class="subject-name">
+
+Mathematics
+
+</div>
+
+<div class="subject-desc">
+
+Chapter-wise priority &
+weightage for Mathematics
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="arrow">
+
+›
+
+</div>
+
+
+</a>
+
+
+<!-- =========================
+     INFO CARD
+========================= -->
+
+<div class="info-card">
+
+
+<div class="info-title">
+
+📚 MHT-CET Chapters
+
+</div>
+
+
+<div class="info-text">
+
+Select Physics, Chemistry or
+Mathematics to view important
+chapters and their expected
+weightage for MHT-CET.
+
+<br><br>
+
+Focus on high-priority chapters
+first and revise regularly.
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <div class="footer">
 
-<div class="footer-logo">
+
+<div class="footer-title">
+
+STUDY-HUB
+
+</div>
+
+
+<div class="footer-text">
+
+© 2026–27 STUDY-HUB
+
+<br>
+
+Made with ❤️ by
+
+<span class="footer-name">
+
+chiragnemade08
+
+</span>
+
+</div>
 
 
 </div>
 
 
-
-<div class="footer-line"></div>
-
-<div class="footer-copy">
-
-© 2026–27 <b>STUDY-HUB</b>
-
 </div>
 
-<div class="footer-made">
 
-Made with ❤️ by <b>chiragnemade08</b>
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
-</div>
+<script>
 
-</div>
 
-</div>
+/* =========================
+   COUNTDOWN
+========================= */
 
-<!-- ================================= -->
-<!-- END OF CONTAINER -->
-<!-- ================================= -->
+const targetDate =
+new Date(
+"October 31, 2026 23:59:59"
+).getTime();
+
+
+function updateCountdown(){
+
+const now =
+new Date().getTime();
+
+const difference =
+targetDate - now;
+
+
+if(difference <= 0){
+
+document.getElementById("days")
+.innerText="00";
+
+document.getElementById("hours")
+.innerText="00";
+
+document.getElementById("minutes")
+.innerText="00";
+
+document.getElementById("seconds")
+.innerText="00";
+
+return;
+
+}
+
+
+const days =
+Math.floor(
+difference /
+(1000 * 60 * 60 * 24)
+);
+
+
+const hours =
+Math.floor(
+(difference %
+(1000 * 60 * 60 * 24))
+/
+(1000 * 60 * 60)
+);
+
+
+const minutes =
+Math.floor(
+(difference %
+(1000 * 60 * 60))
+/
+(1000 * 60)
+);
+
+
+const seconds =
+Math.floor(
+(difference %
+(1000 * 60))
+/
+1000
+);
+
+
+document.getElementById("days")
+.innerText =
+String(days).padStart(2,"0");
+
+
+document.getElementById("hours")
+.innerText =
+String(hours).padStart(2,"0");
+
+
+document.getElementById("minutes")
+.innerText =
+String(minutes).padStart(2,"0");
+
+
+document.getElementById("seconds")
+.innerText =
+String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+updateCountdown,
+1000
+);
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+const themeToggle =
+document.getElementById(
+"themeToggle"
+);
+
+
+themeToggle.addEventListener(
+"click",
+function(){
+
+document.body.classList.toggle(
+"dark"
+);
+
+
+if(
+document.body.classList.contains(
+"dark"
+)
+){
+
+themeToggle.innerText="☀️";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+else{
+
+themeToggle.innerText="🌙";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}
+
+}
+);
+
+
+/* =========================
+   REMEMBER DARK MODE
+========================= */
+
+if(
+localStorage.getItem("theme")
+===
+"dark"
+){
+
+document.body.classList.add(
+"dark"
+);
+
+themeToggle.innerText="☀️";
+
+}
+
+</script>
+
 
 </body>
+
 </html>
