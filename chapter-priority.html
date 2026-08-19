@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Chapter Priority</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7ff;
+padding:20px;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:320px;
+height:320px;
+background:#8b5cf6;
+filter:blur(140px);
+top:-120px;
+left:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:300px;
+height:300px;
+background:#2563eb;
+filter:blur(140px);
+bottom:-120px;
+right:-120px;
+opacity:.30;
+z-index:-1;
+}
+
+.container{
+max-width:430px;
+margin:auto;
+}
+
+/* Header */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.back-btn{
+width:55px;
+height:55px;
+border:none;
+border-radius:18px;
+background:white;
+font-size:25px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.page-title{
+font-size:28px;
+font-weight:bold;
+color:#111827;
+}
+
+.page-sub{
+font-size:13px;
+color:#6b7280;
+margin-top:5px;
+}
+
+/* Hero */
+
+.hero{
+background:linear-gradient(
+135deg,
+#7c3aed,
+#5b21b6,
+#2563eb
+);
+
+padding:30px;
+
+border-radius:30px;
+
+color:white;
+
+box-shadow:0 18px 40px rgba(124,58,237,.25);
+
+position:relative;
+
+overflow:hidden;
+
+margin-bottom:25px;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,255,255,.12);
+border-radius:50%;
+top:-60px;
+right:-60px;
+}
+
+.hero-icon{
+font-size:48px;
+}
+
+.hero-title{
+font-size:32px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.hero-sub{
+margin-top:12px;
+line-height:1.8;
+font-size:14px;
+color:#ede9fe;
+}
+
+/* Exam Cards */
+
+.exam-card{
+
+display:block;
+
+background:white;
+
+padding:22px;
+
+border-radius:25px;
+
+margin-bottom:18px;
+
+text-decoration:none;
+
+color:#111827;
+
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.exam-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 20px 40px rgba(124,58,237,.18);
+
+}
+
+.exam-card::after{
+
+content:'';
+
+position:absolute;
+
+width:100px;
+
+height:100px;
+
+border-radius:50%;
+
+background:#ede9fe;
+
+right:-35px;
+
+top:-35px;
+
+opacity:.7;
+
+}
+
+.exam-content{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+position:relative;
+
+z-index:1;
+
+}
+
+.exam-left{
+
+display:flex;
+
+align-items:center;
+
+gap:17px;
+
+}
+
+.exam-icon{
+
+width:65px;
+
+height:65px;
+
+border-radius:19px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+color:white;
+
+}
+
+.mht{
+
+background:linear-gradient(
+135deg,
+#16a34a,
+#059669
+);
+
+}
+
+.main{
+
+background:linear-gradient(
+135deg,
+#2563eb,
+#4f46e5
+);
+
+}
+
+.advance{
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#9333ea
+);
+
+}
+
+.exam-name{
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+.exam-desc{
+
+font-size:13px;
+
+color:#6b7280;
+
+margin-top:5px;
+
+}
+
+.arrow{
+
+width:44px;
+
+height:44px;
+
+border-radius:50%;
+
+background:#f0ebff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:21px;
+
+font-weight:bold;
+
+color:#7c3aed;
+
+}
+
+/* Footer */
+
+.footer{
+
+margin-top:28px;
+
+padding:24px;
+
+background:white;
+
+border-radius:23px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.footer-title{
+
+font-size:21px;
+
+font-weight:bold;
+
+color:#7c3aed;
+
+margin-bottom:10px;
+
+}
+
+.footer-text{
+
+font-size:14px;
+
+color:#6b7280;
+
+line-height:1.8;
+
+}
+
+.footer-name{
+
+color:#7c3aed;
+
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Header -->
+
+<div class="header">
+
+<button class="back-btn"
+onclick="history.back()">
+
+←
+
+</button>
+
+<div>
+
+<div class="page-title">
+
+Chapter Priority
+
+</div>
+
+<div class="page-sub">
+
+Select your examination
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Hero -->
+
+<div class="hero">
+
+<div class="hero-icon">
+
+📊
+
+</div>
+
+<div class="hero-title">
+
+Chapter Priority
+
+</div>
+
+<div class="hero-sub">
+
+View chapter-wise weightage
+and priority according to
+your entrance examination.
+
+</div>
+
+</div>
+
+
+<!-- MHT-CET -->
+
+<a href="mht-cet-priority.html"
+class="exam-card">
+
+<div class="exam-content">
+
+<div class="exam-left">
+
+<div class="exam-icon mht">
+
+🎯
+
+</div>
+
+<div>
+
+<div class="exam-name">
+
+MHT-CET
+
+</div>
+
+<div class="exam-desc">
+
+Chapter-wise Weightage
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- JEE Main -->
+
+<a href="jee-main-priority.html"
+class="exam-card">
+
+<div class="exam-content">
+
+<div class="exam-left">
+
+<div class="exam-icon main">
+
+🚀
+
+</div>
+
+<div>
+
+<div class="exam-name">
+
+JEE Main
+
+</div>
+
+<div class="exam-desc">
+
+Chapter-wise Weightage
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- JEE Advanced -->
+
+<a href="jee-advanced-priority.html"
+class="exam-card">
+
+<div class="exam-content">
+
+<div class="exam-left">
+
+<div class="exam-icon advance">
+
+🏆
+
+</div>
+
+<div>
+
+<div class="exam-name">
+
+JEE Advanced
+
+</div>
+
+<div class="exam-desc">
+
+Chapter-wise Weightage
+
+</div>
+
+</div>
+
+</div>
+
+<div class="arrow">
+
+➜
+
+</div>
+
+</div>
+
+</a>
+
+
+<!-- Footer -->
+
+<div class="footer">
+
+<div class="footer-title">
+
+STUDY-HUB
+
+</div>
+
+<div class="footer-text">
+
+© 2026–27 STUDY-HUB
+
+<br>
+
+Made with ❤️ by
+
+<span class="footer-name">
+chiragnemade08
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
