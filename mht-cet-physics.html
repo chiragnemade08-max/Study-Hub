@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>MHT-CET Physics Priority</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+background:#f4f7ff;
+
+color:#111827;
+
+padding:18px;
+
+overflow-x:hidden;
+
+transition:
+background .4s,
+color .4s;
+
+min-height:100vh;
+
+}
+
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:330px;
+
+height:330px;
+
+background:#2563eb;
+
+filter:blur(140px);
+
+top:-130px;
+
+left:-130px;
+
+opacity:.25;
+
+z-index:-2;
+
+animation:floatGlow 7s ease-in-out infinite alternate;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:330px;
+
+height:330px;
+
+background:#9333ea;
+
+filter:blur(140px);
+
+right:-140px;
+
+bottom:-140px;
+
+opacity:.22;
+
+z-index:-2;
+
+animation:floatGlow2 8s ease-in-out infinite alternate;
+
+}
+
+@keyframes floatGlow{
+
+from{
+transform:translate(0,0);
+}
+
+to{
+transform:translate(50px,40px);
+}
+
+}
+
+@keyframes floatGlow2{
+
+from{
+transform:translate(0,0);
+}
+
+to{
+transform:translate(-40px,-50px);
+}
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+max-width:450px;
+
+margin:auto;
+
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-bottom:18px;
+
+}
+
+.back-btn,
+.theme-btn{
+
+width:52px;
+
+height:52px;
+
+border:0;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.92);
+
+font-size:24px;
+
+cursor:pointer;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.back-btn:hover,
+.theme-btn:hover{
+
+transform:
+translateY(-4px)
+scale(1.03);
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+padding:30px 25px;
+
+border-radius:34px;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#2563eb 0%,
+#4f46e5 45%,
+#9333ea 100%
+);
+
+box-shadow:
+0 20px 45px rgba(79,70,229,.30);
+
+margin-bottom:22px;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.10);
+
+right:-85px;
+
+top:-90px;
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.08);
+
+left:-55px;
+
+bottom:-60px;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.hero-icon{
+
+width:70px;
+
+height:70px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:22px;
+
+font-size:40px;
+
+background:
+rgba(255,255,255,.16);
+
+border:
+1px solid rgba(255,255,255,.22);
+
+backdrop-filter:blur(8px);
+
+margin-bottom:16px;
+
+}
+
+.hero-title{
+
+font-size:30px;
+
+font-weight:900;
+
+letter-spacing:-.5px;
+
+}
+
+.hero-sub{
+
+font-size:14px;
+
+line-height:1.8;
+
+color:#e0e7ff;
+
+margin-top:9px;
+
+}
+
+
+/* =========================
+   HERO BADGE
+========================= */
+
+.hero-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:7px;
+
+margin-top:17px;
+
+padding:8px 13px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,.15);
+
+font-size:12px;
+
+font-weight:700;
+
+border:
+1px solid rgba(255,255,255,.18);
+
+}
+
+
+/* =========================
+   OVERALL SCORE
+========================= */
+
+.overall-card{
+
+position:relative;
+
+overflow:hidden;
+
+background:
+rgba(255,255,255,.95);
+
+border-radius:28px;
+
+padding:22px;
+
+margin-bottom:25px;
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.overall-card::after{
+
+content:"";
+
+position:absolute;
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:#dbeafe;
+
+right:-55px;
+
+top:-55px;
+
+opacity:.7;
+
+}
+
+.overall-top{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+position:relative;
+
+z-index:1;
+
+}
+
+.overall-title{
+
+font-size:17px;
+
+font-weight:800;
+
+}
+
+.overall-label{
+
+font-size:11px;
+
+font-weight:700;
+
+color:#6b7280;
+
+margin-top:5px;
+
+}
+
+.overall-number{
+
+font-size:34px;
+
+font-weight:900;
+
+color:#2563eb;
+
+}
+
+.overall-bottom{
+
+display:flex;
+
+gap:10px;
+
+margin-top:18px;
+
+position:relative;
+
+z-index:1;
+
+}
+
+.stat{
+
+flex:1;
+
+padding:12px;
+
+border-radius:16px;
+
+background:#f5f7ff;
+
+text-align:center;
+
+}
+
+.stat-value{
+
+font-size:17px;
+
+font-weight:800;
+
+color:#4f46e5;
+
+}
+
+.stat-label{
+
+font-size:10px;
+
+color:#6b7280;
+
+margin-top:4px;
+
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section{
+
+margin-bottom:25px;
+
+}
+
+.section-header{
+
+display:flex;
+
+align-items:center;
+
+gap:13px;
+
+margin-bottom:14px;
+
+}
+
+.section-icon{
+
+width:54px;
+
+height:54px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:27px;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+
+box-shadow:
+0 8px 20px rgba(79,70,229,.22);
+
+}
+
+.section-title{
+
+font-size:23px;
+
+font-weight:900;
+
+}
+
+.section-total{
+
+font-size:12px;
+
+color:#6b7280;
+
+margin-top:4px;
+
+}
+
+
+/* =========================
+   CHAPTER CARD
+========================= */
+
+.chapter-card{
+
+background:
+rgba(255,255,255,.96);
+
+border-radius:21px;
+
+padding:16px;
+
+margin-bottom:11px;
+
+box-shadow:
+0 7px 22px rgba(0,0,0,.06);
+
+border:2px solid transparent;
+
+transition:.3s;
+
+}
+
+.chapter-card:hover{
+
+transform:
+translateY(-3px);
+
+border-color:#93c5fd;
+
+box-shadow:
+0 14px 30px rgba(37,99,235,.12);
+
+}
+
+.chapter-top{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:10px;
+
+}
+
+.chapter-name{
+
+font-size:15px;
+
+font-weight:800;
+
+}
+
+.question-badge{
+
+padding:8px 11px;
+
+border-radius:12px;
+
+font-size:12px;
+
+font-weight:900;
+
+white-space:nowrap;
+
+background:#eff6ff;
+
+color:#2563eb;
+
+}
+
+.chapter-tag{
+
+font-size:11px;
+
+color:#9ca3af;
+
+margin-top:5px;
+
+}
+
+
+/* =========================
+   PRIORITY BAR
+========================= */
+
+.priority-bar{
+
+height:7px;
+
+background:#eef2ff;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:12px;
+
+}
+
+.priority-fill{
+
+height:100%;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#7c3aed
+);
+
+}
+
+
+/* Priority widths */
+
+.w20{
+width:20%;
+}
+
+.w35{
+width:35%;
+}
+
+.w50{
+width:50%;
+}
+
+.w65{
+width:65%;
+}
+
+.w80{
+width:80%;
+}
+
+.w100{
+width:100%;
+}
+
+
+/* =========================
+   PRIORITY LABEL
+========================= */
+
+.priority-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-top:7px;
+
+}
+
+.priority-text{
+
+font-size:10px;
+
+font-weight:700;
+
+color:#6b7280;
+
+}
+
+.high{
+
+color:#dc2626;
+
+}
+
+.medium{
+
+color:#d97706;
+
+}
+
+.normal{
+
+color:#2563eb;
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+
+background:#0b1120;
+
+color:#f9fafb;
+
+}
+
+body.dark .back-btn,
+body.dark .theme-btn,
+body.dark .overall-card,
+body.dark .chapter-card{
+
+background:#182235;
+
+color:#f9fafb;
+
+}
+
+body.dark .section-total,
+body.dark .overall-label,
+body.dark .stat-label,
+body.dark .chapter-tag,
+body.dark .priority-text{
+
+color:#9ca3af;
+
+}
+
+body.dark .stat{
+
+background:#0f172a;
+
+}
+
+body.dark .question-badge{
+
+background:#172554;
+
+color:#93c5fd;
+
+}
+
+body.dark .priority-bar{
+
+background:#0f172a;
+
+}
+
+body.dark .theme-btn{
+
+color:white;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:380px){
+
+body{
+
+padding:14px;
+
+}
+
+.hero{
+
+padding:25px 20px;
+
+}
+
+.hero-title{
+
+font-size:27px;
+
+}
+
+.overall-number{
+
+font-size:30px;
+
+}
+
+.chapter-name{
+
+font-size:14px;
+
+}
+
+.question-badge{
+
+padding:7px 9px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+
+<button
+class="back-btn"
+onclick="window.location.href='mht-cet-priority.html'">
+
+←
+
+</button>
+
+<button
+class="theme-btn"
+id="themeToggle">
+
+🌙
+
+</button>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<div class="hero">
+
+<div class="hero-content">
+
+<div class="hero-icon">
+
+⚛️
+
+</div>
+
+<div class="hero-title">
+
+MHT-CET Physics
+
+</div>
+
+<div class="hero-sub">
+
+Chapter-wise question weightage,
+priority and smart preparation
+guide for MHT-CET Physics.
+
+</div>
+
+<div class="hero-badge">
+
+🔥 2027 Preparation
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     OVERALL SCORE
+========================= -->
+
+<div class="overall-card">
+
+<div class="overall-top">
+
+<div>
+
+<div class="overall-title">
+
+Physics Overall Weightage
+
+</div>
+
+<div class="overall-label">
+
+TOTAL QUESTIONS & MARKS
+
+</div>
+
+</div>
+
+<div class="overall-number">
+
+38–45
+
+</div>
+
+</div>
+
+
+<div class="overall-bottom">
+
+<div class="stat">
+
+<div class="stat-value">
+
+4
+
+</div>
+
+<div class="stat-label">
+
+UNITS
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-value">
+
+18+
+
+</div>
+
+<div class="stat-label">
+
+CHAPTERS
+
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-value">
+
+38–45
+
+</div>
+
+<div class="stat-label">
+
+QUESTIONS
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     MECHANICS
+========================= -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="section-icon">
+
+🔧
+
+</div>
+
+<div>
+
+<div class="section-title">
+
+Mechanics
+
+</div>
+
+<div class="section-total">
+
+TOTAL QUESTIONS AND MARKS = 18–20
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Units and Dimensions -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Units and Dimensions
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w20"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1 Question
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Circular Motion -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Circular Motion
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w20"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1 Question
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Rotational Motion -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Rotational Motion
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w20"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1 Question
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Gravitation -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Gravitation
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w20"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1 Question
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- SHM -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Simple Harmonic Motion
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2–3Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w50"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+MEDIUM PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2–3 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Fluid -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Fluid
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+3Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w65"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+HIGH PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+3 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Waves -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Waves
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+4Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w80"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text high">
+
+HIGH PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+4 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Heat and Thermodynamics -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Heat and Thermodynamics
+
+</div>
+
+<div class="chapter-tag">
+
+Mechanics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+5–6Q
+
+</div>
+
+</div>
+
+<div class="priority-bar">
+
+<div class="priority-fill w100"></div>
+
+</div>
+
+<div class="priority-row">
+
+<span class="priority-text high">
+
+🔥 TOP PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+5–6 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     CONTINUE PART-2
+========================= --><!-- =========================
+     OPTICS
+========================= -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="section-icon">
+
+🔭
+
+</div>
+
+<div>
+
+<div class="section-title">
+
+Optics
+
+</div>
+
+<div class="section-total">
+
+TOTAL QUESTIONS AND MARKS = 3–4
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     RAY OPTICS
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Ray Optics
+
+</div>
+
+<div class="chapter-tag">
+
+Optics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w20"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1 Question
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     WAVE OPTICS
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Wave Optics
+
+</div>
+
+<div class="chapter-tag">
+
+Optics • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2–3Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w50"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+MEDIUM PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2–3 Questions
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ELECTROMAGNETISM
+========================= -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="section-icon">
+
+⚡
+
+</div>
+
+<div>
+
+<div class="section-title">
+
+Electromagnetism
+
+</div>
+
+<div class="section-total">
+
+TOTAL QUESTIONS AND MARKS = 12–14
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ELECTROSTATICS
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Electrostatics
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w50"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+MEDIUM PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CURRENT ELECTRICITY
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Current Electricity
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w50"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+MEDIUM PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CAPACITOR
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Capacitor
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+1–2Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w35"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text normal">
+
+NORMAL PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+1–2 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     MOVING CHARGES
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Moving Charges and Magnetism
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2–3Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w65"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text high">
+
+HIGH PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2–3 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ELECTROMAGNETIC INDUCTION
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Electromagnetic Induction
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+2Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w50"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text medium">
+
+MEDIUM PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+2 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ALTERNATING CURRENT
+========================= -->
+
+<div class="chapter-card">
+
+<div class="chapter-top">
+
+<div>
+
+<div class="chapter-name">
+
+Alternating Current
+
+</div>
+
+<div class="chapter-tag">
+
+Electromagnetism • Expected Weightage
+
+</div>
+
+</div>
+
+<div class="question-badge">
+
+3Q
+
+</div>
+
+</div>
+
+
+<div class="priority-bar">
+
+<div class="priority-fill w80"></div>
+
+</div>
+
+
+<div class="priority-row">
+
+<span class="priority-text high">
+
+🔥 HIGH PRIORITY
+
+</span>
+
+<span class="priority-text">
+
+3 Questions
+
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     END OF PART-2
+     CONTINUE WITH PART-3
+========================= --><!-- =========================
+     MODERN PHYSICS
+========================= -->
+
+<div class="section">
+
+    <div class="section-header">
+
+        <div class="section-icon">
+            ⚛️
+        </div>
+
+        <div>
+
+            <div class="section-title">
+                Modern Physics
+            </div>
+
+            <div class="section-total">
+                TOTAL QUESTIONS AND MARKS = 5–7
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ATOMS AND NUCLEI
+    ========================= -->
+
+    <div class="chapter-card">
+
+        <div class="chapter-top">
+
+            <div>
+
+                <div class="chapter-name">
+                    Atoms and Nuclei
+                </div>
+
+                <div class="chapter-tag">
+                    Modern Physics • Expected Weightage
+                </div>
+
+            </div>
+
+            <div class="question-badge">
+                2Q
+            </div>
+
+        </div>
+
+
+        <div class="priority-bar">
+
+            <div class="priority-fill w50"></div>
+
+        </div>
+
+
+        <div class="priority-row">
+
+            <span class="priority-text medium">
+                MEDIUM PRIORITY
+            </span>
+
+            <span class="priority-text">
+                2 Questions
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         DUAL NATURE
+    ========================= -->
+
+    <div class="chapter-card">
+
+        <div class="chapter-top">
+
+            <div>
+
+                <div class="chapter-name">
+                    Dual Nature and Radiation
+                </div>
+
+                <div class="chapter-tag">
+                    Modern Physics • Expected Weightage
+                </div>
+
+            </div>
+
+            <div class="question-badge">
+                1–2Q
+            </div>
+
+        </div>
+
+
+        <div class="priority-bar">
+
+            <div class="priority-fill w35"></div>
+
+        </div>
+
+
+        <div class="priority-row">
+
+            <span class="priority-text normal">
+                NORMAL PRIORITY
+            </span>
+
+            <span class="priority-text">
+                1–2 Questions
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SEMICONDUCTOR
+    ========================= -->
+
+    <div class="chapter-card">
+
+        <div class="chapter-top">
+
+            <div>
+
+                <div class="chapter-name">
+                    Semiconductor
+                </div>
+
+                <div class="chapter-tag">
+                    Modern Physics • Expected Weightage
+                </div>
+
+            </div>
+
+            <div class="question-badge">
+                2–3Q
+            </div>
+
+        </div>
+
+
+        <div class="priority-bar">
+
+            <div class="priority-fill w65"></div>
+
+        </div>
+
+
+        <div class="priority-row">
+
+            <span class="priority-text high">
+                🔥 HIGH PRIORITY
+            </span>
+
+            <span class="priority-text">
+                2–3 Questions
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer"
+style="
+background:white;
+padding:28px 20px;
+border-radius:28px;
+text-align:center;
+margin-top:25px;
+margin-bottom:10px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+">
+
+
+    <div style="
+    font-size:24px;
+    font-weight:900;
+    color:#7c3aed;
+    margin-bottom:8px;
+    ">
+
+        STUDY-HUB
+
+    </div>
+
+
+    <div style="
+    font-size:13px;
+    color:#9ca3af;
+    margin-bottom:12px;
+    ">
+
+        MHT-CET • PHYSICS • 2027
+
+    </div>
+
+
+    <div class="footer-text">
+
+        © 2026–27 STUDY-HUB
+
+        <br>
+
+        Made with ❤️ by
+
+        <span class="footer-name">
+
+            chiragnemade08
+
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   DARK MODE TOGGLE
+========================= */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+
+themeToggle.addEventListener(
+"click",
+function(){
+
+    document.body.classList.toggle("dark");
+
+
+    if(
+        document.body.classList.contains("dark")
+    ){
+
+        themeToggle.innerText = "☀️";
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    }
+
+    else{
+
+        themeToggle.innerText = "🌙";
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
+    }
+
+});
+
+
+/* =========================
+   REMEMBER THEME
+========================= */
+
+if(
+    localStorage.getItem("theme")
+    ===
+    "dark"
+){
+
+    document.body.classList.add("dark");
+
+    themeToggle.innerText = "☀️";
+
+}
+
+else{
+
+    themeToggle.innerText = "🌙";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
