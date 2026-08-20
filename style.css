@@ -1,0 +1,565 @@
+/* =====================================================
+   PART-2 SECTION STYLES
+===================================================== */
+
+.section{
+    margin-top:32px;
+}
+
+
+/* Section heading */
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:17px;
+    margin-bottom:18px;
+}
+
+.section-heading h2{
+    font-size:29px;
+    font-weight:800;
+    color:#f9fafb;
+    margin:0;
+}
+
+.section-heading p{
+    margin-top:6px;
+    font-size:14px;
+    color:#9ca3af;
+}
+
+
+/* Section icons */
+
+.section-icon{
+    width:68px;
+    height:68px;
+
+    border-radius:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+}
+
+.optics-icon{
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+.electromagnetic-icon{
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #ef4444
+        );
+}
+
+
+/* Chapter card */
+
+.chapter-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.04);
+
+    border-radius:28px;
+
+    padding:22px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
+
+    transition:.3s;
+
+    overflow:hidden;
+}
+
+.chapter-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 38px rgba(124,58,237,.18);
+}
+
+
+/* Chapter top */
+
+.chapter-top{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:12px;
+}
+
+.chapter-top h3{
+
+    font-size:20px;
+
+    line-height:1.3;
+
+    color:#f3f4f6;
+
+    margin:0;
+}
+
+.chapter-top p{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+    margin-top:7px;
+
+    line-height:1.4;
+}
+
+
+/* Question badge */
+
+.question-badge{
+
+    min-width:66px;
+
+    padding:11px 10px;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.18),
+            rgba(124,58,237,.25)
+        );
+
+    color:#a78bfa;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    text-align:center;
+
+    white-space:nowrap;
+}
+
+
+/* Progress */
+
+.progress-area{
+
+    margin-top:20px;
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#0b1220;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+.progress-fill.high{
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+.progress-fill.medium{
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #6366f1
+        );
+}
+
+
+/* Bottom */
+
+.chapter-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:11px;
+
+    font-size:13px;
+
+    color:#6b7280;
+}
+
+.priority{
+
+    font-weight:700;
+}
+
+.high-text{
+    color:#9ca3af;
+}
+
+.medium-text{
+    color:#9ca3af;
+}
+
+.normal-text{
+    color:#9ca3af;
+}
+
+
+/* Mobile */
+
+@media(max-width:360px){
+
+    .section-heading h2{
+        font-size:25px;
+    }
+
+    .section-heading p{
+        font-size:12px;
+    }
+
+    .section-icon{
+        width:60px;
+        height:60px;
+        font-size:29px;
+    }
+
+    .chapter-card{
+        padding:18px;
+        border-radius:24px;
+    }
+
+    .chapter-top h3{
+        font-size:18px;
+    }
+
+    .question-badge{
+        min-width:58px;
+        font-size:15px;
+        padding:9px 7px;
+    }
+
+}/* =====================================================
+   MODERN PHYSICS
+===================================================== */
+
+.modern-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #9333ea
+        );
+
+}
+
+
+/* =====================================================
+   NORMAL PROGRESS
+===================================================== */
+
+.progress-fill.normal{
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #6366f1
+        );
+
+}
+
+
+/* =====================================================
+   STUDY NOTE
+===================================================== */
+
+.study-note{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    background:#111827;
+
+    border:1px solid rgba(124,58,237,.15);
+
+    border-radius:27px;
+
+    padding:22px;
+
+    margin-top:25px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
+
+}
+
+.study-note-icon{
+
+    width:55px;
+
+    height:55px;
+
+    flex-shrink:0;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:27px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+}
+
+.study-note h3{
+
+    font-size:19px;
+
+    color:#f3f4f6;
+
+    margin-bottom:7px;
+
+}
+
+.study-note p{
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    color:#9ca3af;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    margin-top:28px;
+
+    padding:27px 20px;
+
+    background:#f3f4f6;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.18);
+
+}
+
+.footer-title{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    color:#7c3aed;
+
+}
+
+.footer-subtitle{
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#6b7280;
+
+    letter-spacing:.5px;
+
+}
+
+.footer-divider{
+
+    width:70px;
+
+    height:3px;
+
+    border-radius:10px;
+
+    margin:17px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+}
+
+.footer-text{
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    color:#6b7280;
+
+}
+
+.footer-name{
+
+    color:#7c3aed;
+
+    font-weight:800;
+
+}
+
+
+/* =====================================================
+   DARK MODE FOOTER
+===================================================== */
+
+body.dark .study-note{
+
+    background:#111827;
+
+}
+
+body.dark .study-note h3{
+
+    color:#f9fafb;
+
+}
+
+body.dark .footer{
+
+    background:#1f2937;
+
+}
+
+body.dark .footer-subtitle,
+body.dark .footer-text{
+
+    color:#9ca3af;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+    .study-note{
+
+        padding:18px;
+
+        border-radius:24px;
+
+    }
+
+    .study-note-icon{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:24px;
+
+    }
+
+    .study-note h3{
+
+        font-size:17px;
+
+    }
+
+    .study-note p{
+
+        font-size:12px;
+
+    }
+
+    .footer{
+
+        padding:24px 17px;
+
+        border-radius:25px;
+
+    }
+
+    .footer-title{
+
+        font-size:25px;
+
+    }
+
+}
