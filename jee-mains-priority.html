@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
 
 <meta charset="UTF-8">
 
@@ -12,10 +12,6 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
 margin:0;
 padding:0;
@@ -23,294 +19,264 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-
-/* =========================
-   BODY
-========================= */
-
 body{
-
 min-height:100vh;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 padding:20px;
-
 overflow:hidden;
 
-background:#f4f7ff;
+background:
+radial-gradient(circle at 10% 10%,rgba(37,99,235,.22),transparent 30%),
+radial-gradient(circle at 90% 90%,rgba(147,51,234,.20),transparent 30%),
+#f4f7ff;
 
 color:#111827;
-
-transition:
-background .4s,
-color .4s;
-
+transition:.4s;
 }
 
 
-/* =========================
-   ANIMATED BACKGROUND
-========================= */
+/* BACKGROUND GLOW */
 
 body::before{
-
 content:"";
-
 position:fixed;
-
-width:360px;
-
-height:360px;
-
+width:400px;
+height:400px;
 border-radius:50%;
-
 background:#2563eb;
-
-filter:blur(130px);
-
-top:-150px;
-
-left:-150px;
-
-opacity:.25;
-
+filter:blur(140px);
+top:-180px;
+left:-180px;
+opacity:.20;
 z-index:-2;
-
-animation:
-floatOne 7s ease-in-out infinite alternate;
-
+animation:floatOne 8s ease-in-out infinite alternate;
 }
-
 
 body::after{
-
 content:"";
-
 position:fixed;
-
-width:360px;
-
-height:360px;
-
+width:400px;
+height:400px;
 border-radius:50%;
-
 background:#9333ea;
-
-filter:blur(130px);
-
-right:-150px;
-
-bottom:-150px;
-
-opacity:.22;
-
+filter:blur(140px);
+right:-180px;
+bottom:-180px;
+opacity:.18;
 z-index:-2;
-
-animation:
-floatTwo 8s ease-in-out infinite alternate;
-
+animation:floatTwo 9s ease-in-out infinite alternate;
 }
-
 
 @keyframes floatOne{
-
 from{
 transform:translate(0,0);
 }
-
 to{
-transform:translate(70px,50px);
+transform:translate(80px,60px);
 }
-
 }
-
 
 @keyframes floatTwo{
-
 from{
 transform:translate(0,0);
 }
-
 to{
-transform:translate(-60px,-60px);
+transform:translate(-70px,-70px);
+}
 }
 
-}
 
-
-/* =========================
-   CONTAINER
-========================= */
+/* CONTAINER */
 
 .container{
-
 width:100%;
-
 max-width:450px;
-
 }
 
 
-/* =========================
-   TOP BAR
-========================= */
+/* TOP BAR */
 
 .topbar{
-
 display:flex;
-
-justify-content:flex-end;
-
+justify-content:space-between;
+align-items:center;
 margin-bottom:15px;
-
 }
 
 
+/* BACK BUTTON */
+
+.back-btn{
+display:flex;
+align-items:center;
+gap:7px;
+
+padding:11px 17px;
+
+border:none;
+border-radius:15px;
+
+background:rgba(255,255,255,.85);
+
+color:#374151;
+
+font-size:14px;
+font-weight:800;
+
+cursor:pointer;
+
+box-shadow:
+0 8px 25px rgba(37,99,235,.10);
+
+border:
+1px solid rgba(124,58,237,.10);
+
+backdrop-filter:blur(15px);
+
+transition:.3s;
+}
+
+.back-btn:hover{
+transform:translateX(-4px);
+box-shadow:
+0 12px 28px rgba(37,99,235,.16);
+}
+
+.back-btn:active{
+transform:scale(.95);
+}
+
+
+/* THEME BUTTON */
+
 .theme-btn{
-
 width:52px;
-
 height:52px;
 
-border:0;
-
+border:none;
 border-radius:18px;
 
-background:rgba(255,255,255,.92);
+background:rgba(255,255,255,.85);
 
 font-size:23px;
 
 cursor:pointer;
 
 box-shadow:
-0 10px 25px rgba(0,0,0,.08);
+0 10px 30px rgba(37,99,235,.12);
+
+backdrop-filter:blur(15px);
 
 transition:.3s;
-
 }
-
 
 .theme-btn:hover{
-
 transform:
 translateY(-4px)
-scale(1.04);
+rotate(5deg);
+}
 
+.theme-btn:active{
+transform:scale(.93);
 }
 
 
-/* =========================
-   MAIN CARD
-========================= */
+/* MAIN CARD */
 
 .card{
-
 position:relative;
-
 overflow:hidden;
 
-padding:42px 25px;
+padding:45px 25px;
 
-border-radius:36px;
+border-radius:32px;
 
 text-align:center;
 
 background:
-rgba(255,255,255,.90);
+linear-gradient(
+145deg,
+rgba(255,255,255,.96),
+rgba(245,247,255,.90)
+);
 
 border:
-1px solid rgba(255,255,255,.7);
+1px solid rgba(124,58,237,.12);
 
 box-shadow:
-0 25px 60px rgba(37,99,235,.16);
+0 30px 70px rgba(37,99,235,.14),
+inset 0 1px 0 rgba(255,255,255,.8);
 
-backdrop-filter:blur(15px);
-
+backdrop-filter:blur(20px);
 }
 
 
-/* Decorative circles */
+/* DECORATIVE GLOW
+   NO WHITE SEMICIRCLES */
 
-.card::before{
-
-content:"";
-
+.glow{
 position:absolute;
 
-width:190px;
-
-height:190px;
+width:180px;
+height:180px;
 
 border-radius:50%;
 
-background:#dbeafe;
+background:
+linear-gradient(
+135deg,
+rgba(37,99,235,.15),
+rgba(124,58,237,.12)
+);
 
-right:-100px;
+filter:blur(5px);
 
-top:-100px;
+top:-90px;
+right:-90px;
 
-opacity:.7;
-
+pointer-events:none;
 }
 
-
-.card::after{
-
-content:"";
-
+.glow-bottom{
 position:absolute;
 
 width:150px;
-
 height:150px;
 
 border-radius:50%;
 
-background:#ede9fe;
+background:
+rgba(124,58,237,.10);
 
-left:-90px;
+filter:blur(10px);
 
-bottom:-80px;
+bottom:-90px;
+left:-70px;
 
-opacity:.7;
-
+pointer-events:none;
 }
 
 
-/* =========================
-   CONTENT
-========================= */
+/* CONTENT */
 
 .content{
-
 position:relative;
-
 z-index:2;
-
 }
 
 
-/* =========================
-   ICON
-========================= */
+/* ROCKET ICON */
 
 .icon{
-
-width:90px;
-
-height:90px;
+width:95px;
+height:95px;
 
 margin:0 auto 22px;
 
 display:flex;
-
 align-items:center;
-
 justify-content:center;
 
 border-radius:28px;
@@ -321,20 +287,38 @@ background:
 linear-gradient(
 135deg,
 #2563eb,
+#4f46e5,
 #7c3aed
 );
 
 box-shadow:
-0 15px 35px rgba(79,70,229,.30);
+0 18px 40px rgba(79,70,229,.30);
 
 animation:
 iconFloat 3s ease-in-out infinite;
 
+position:relative;
 }
 
+.icon::after{
+content:"";
+
+position:absolute;
+inset:1px;
+
+border-radius:27px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.18),
+transparent 50%
+);
+
+pointer-events:none;
+}
 
 @keyframes iconFloat{
-
 0%,100%{
 transform:translateY(0);
 }
@@ -342,38 +326,27 @@ transform:translateY(0);
 50%{
 transform:translateY(-8px);
 }
-
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* TITLE */
 
 .small-title{
-
 font-size:13px;
-
-font-weight:800;
-
-letter-spacing:2px;
+font-weight:900;
+letter-spacing:3px;
 
 color:#7c3aed;
 
-margin-bottom:9px;
+margin-bottom:8px;
 
 text-transform:uppercase;
-
 }
 
-
 .title{
-
-font-size:38px;
-
+font-size:40px;
 font-weight:900;
-
-letter-spacing:-1px;
+letter-spacing:-1.5px;
 
 background:
 linear-gradient(
@@ -384,31 +357,22 @@ linear-gradient(
 );
 
 -webkit-background-clip:text;
-
 -webkit-text-fill-color:transparent;
-
 }
-
 
 .coming{
-
 font-size:31px;
-
 font-weight:900;
 
-margin-top:4px;
+margin-top:5px;
 
 color:#111827;
-
 }
 
 
-/* =========================
-   DESCRIPTION
-========================= */
+/* DESCRIPTION */
 
 .description{
-
 font-size:14px;
 
 line-height:1.8;
@@ -418,46 +382,43 @@ color:#6b7280;
 margin:18px auto 0;
 
 max-width:340px;
-
 }
 
 
-/* =========================
-   BADGE
-========================= */
+/* BADGE */
 
 .badge{
-
 display:inline-flex;
-
 align-items:center;
-
-gap:8px;
+gap:9px;
 
 margin-top:25px;
 
-padding:11px 17px;
+padding:12px 18px;
 
 border-radius:30px;
 
 font-size:12px;
-
-font-weight:800;
+font-weight:900;
 
 color:#4f46e5;
 
-background:#eef2ff;
+background:
+linear-gradient(
+135deg,
+#eef2ff,
+#f5f3ff
+);
 
 border:
-1px solid #e0e7ff;
+1px solid rgba(99,102,241,.15);
 
+box-shadow:
+0 8px 20px rgba(79,70,229,.08);
 }
 
-
 .dot{
-
 width:8px;
-
 height:8px;
 
 border-radius:50%;
@@ -465,217 +426,215 @@ border-radius:50%;
 background:#7c3aed;
 
 animation:pulse 1.4s infinite;
-
 }
-
 
 @keyframes pulse{
 
 0%{
-box-shadow:0 0 0 0 rgba(124,58,237,.5);
+box-shadow:
+0 0 0 0 rgba(124,58,237,.5);
 }
 
 70%{
-box-shadow:0 0 0 8px rgba(124,58,237,0);
+box-shadow:
+0 0 0 8px rgba(124,58,237,0);
 }
 
 100%{
-box-shadow:0 0 0 0 rgba(124,58,237,0);
+box-shadow:
+0 0 0 0 rgba(124,58,237,0);
 }
 
 }
 
 
-/* =========================
-   FEATURES
-========================= */
+/* FEATURES */
 
 .features{
-
 display:flex;
+gap:10px;
 
-gap:9px;
-
-margin-top:27px;
-
+margin-top:28px;
 }
-
 
 .feature{
-
 flex:1;
 
-padding:13px 7px;
+padding:15px 7px;
 
-border-radius:17px;
+border-radius:18px;
 
-background:#f5f7ff;
+background:
+rgba(245,247,255,.9);
 
+border:
+1px solid rgba(99,102,241,.08);
+
+transition:.3s;
 }
 
+.feature:hover{
+transform:translateY(-5px);
+
+box-shadow:
+0 12px 25px rgba(37,99,235,.10);
+}
 
 .feature-icon{
-
-font-size:20px;
-
-margin-bottom:5px;
-
+font-size:21px;
+margin-bottom:6px;
 }
-
 
 .feature-text{
-
 font-size:10px;
-
-font-weight:800;
-
+font-weight:900;
 color:#6b7280;
-
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer{
-
-margin-top:20px;
+margin-top:21px;
 
 font-size:11px;
 
 color:#9ca3af;
-
 }
-
 
 .footer strong{
-
 color:#7c3aed;
-
 }
 
 
-/* =========================
-   DARK MODE
-========================= */
+/* DARK MODE */
 
 body.dark{
 
-background:#0b1120;
+background:
+radial-gradient(
+circle at 10% 10%,
+rgba(37,99,235,.18),
+transparent 30%
+),
+
+radial-gradient(
+circle at 90% 90%,
+rgba(147,51,234,.18),
+transparent 30%
+),
+
+#070d1b;
 
 color:#f9fafb;
-
 }
-
 
 body.dark .card{
 
 background:
-rgba(24,34,53,.92);
+linear-gradient(
+145deg,
+rgba(18,28,48,.96),
+rgba(13,21,38,.94)
+);
 
 border-color:
-rgba(255,255,255,.05);
+rgba(129,140,248,.12);
 
 box-shadow:
-0 25px 60px rgba(0,0,0,.30);
-
+0 30px 70px rgba(0,0,0,.40),
+inset 0 1px 0 rgba(255,255,255,.04);
 }
-
 
 body.dark .theme-btn{
-
-background:#182235;
-
+background:#131e33;
 color:white;
-
 }
 
+body.dark .back-btn{
+background:#131e33;
+color:#e5e7eb;
+
+border-color:
+rgba(129,140,248,.12);
+}
 
 body.dark .coming{
-
 color:#f9fafb;
-
 }
-
 
 body.dark .description,
 body.dark .footer{
-
 color:#9ca3af;
-
 }
-
 
 body.dark .feature{
 
-background:#0f172a;
+background:
+rgba(15,23,42,.85);
 
+border-color:
+rgba(129,140,248,.08);
 }
-
 
 body.dark .feature-text{
-
 color:#9ca3af;
-
 }
-
 
 body.dark .badge{
 
-background:#172554;
+background:
+rgba(30,41,90,.75);
 
-border-color:#1e3a8a;
+border-color:
+rgba(96,165,250,.15);
 
 color:#93c5fd;
-
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:380px){
 
-.card{
-
-padding:35px 20px;
-
-border-radius:30px;
-
+body{
+padding:15px;
 }
 
+.card{
+padding:35px 20px;
+border-radius:28px;
+}
 
 .icon{
-
-width:78px;
-
-height:78px;
+width:80px;
+height:80px;
 
 font-size:40px;
 
+border-radius:24px;
 }
-
 
 .title{
-
-font-size:32px;
-
+font-size:33px;
 }
-
 
 .coming{
-
 font-size:27px;
-
 }
 
-
 .description{
-
 font-size:13px;
+line-height:1.7;
+}
 
+.feature{
+padding:12px 5px;
+}
+
+.back-btn{
+padding:10px 14px;
+font-size:13px;
 }
 
 }
@@ -692,10 +651,24 @@ font-size:13px;
 
 
 <!-- =========================
-     THEME
+     TOP BAR
 ========================= -->
 
 <div class="topbar">
+
+
+<!-- BACK BUTTON -->
+
+<button
+class="back-btn"
+onclick="goBack()">
+
+← Back
+
+</button>
+
+
+<!-- THEME BUTTON -->
 
 <button
 class="theme-btn"
@@ -704,6 +677,7 @@ id="themeToggle">
 🌙
 
 </button>
+
 
 </div>
 
@@ -715,10 +689,17 @@ id="themeToggle">
 <div class="card">
 
 
+<!-- GLOW -->
+
+<div class="glow"></div>
+
+<div class="glow-bottom"></div>
+
+
 <div class="content">
 
 
-<!-- ICON -->
+<!-- ROCKET -->
 
 <div class="icon">
 
@@ -727,7 +708,7 @@ id="themeToggle">
 </div>
 
 
-<!-- TITLE -->
+<!-- STUDY HUB -->
 
 <div class="small-title">
 
@@ -736,12 +717,16 @@ STUDY-HUB
 </div>
 
 
+<!-- JEE MAIN -->
+
 <div class="title">
 
 JEE Main
 
 </div>
 
+
+<!-- COMING SOON -->
 
 <div class="coming">
 
@@ -825,7 +810,9 @@ JEE MAIN
 
 <div class="footer">
 
-More from <strong>STUDY-HUB</strong> • Stay tuned 🚀
+More from
+<strong>STUDY-HUB</strong>
+• Stay tuned 🚀
 
 </div>
 
@@ -837,13 +824,34 @@ More from <strong>STUDY-HUB</strong> • Stay tuned 🚀
 
 </div>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
+
+/* =========================
+   WORKING BACK BUTTON
+========================= */
+
+function goBack(){
+
+if(document.referrer){
+
+window.history.back();
+
+}
+
+else{
+
+window.location.href="index.html";
+
+}
+
+}
+
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
 
 const themeToggle =
 document.getElementById("themeToggle");
@@ -883,7 +891,9 @@ localStorage.setItem(
 });
 
 
-/* Remember theme */
+/* =========================
+   REMEMBER THEME
+========================= */
 
 if(
 localStorage.getItem("theme")
