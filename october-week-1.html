@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>October Week 1 | STUDY-HUB</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#06060d;
+    --bg2:#0b0a16;
+
+    --text:#fff;
+    --muted:#9b9aae;
+
+    --border:rgba(255,255,255,.11);
+
+    --purple:#8b5cf6;
+    --blue:#6366f1;
+    --cyan:#22d3ee;
+    --pink:#ec4899;
+    --orange:#f59e0b;
+
+    --card:rgba(255,255,255,.055);
+    --shadow:rgba(0,0,0,.35);
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(139,92,246,.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 35%,
+            rgba(99,102,241,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 30% 100%,
+            rgba(236,72,153,.10),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            var(--bg),
+            var(--bg2)
+        );
+
+    overflow-x:hidden;
+}
+
+
+/* BACKGROUND GLOW */
+
+body::before,
+body::after{
+    content:"";
+
+    position:fixed;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+body::before{
+    background:rgba(139,92,246,.12);
+
+    top:20%;
+    left:-130px;
+}
+
+body::after{
+    background:rgba(34,211,238,.08);
+
+    bottom:5%;
+    right:-130px;
+}
+
+
+/* APP */
+
+.container{
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:18px 16px 30px;
+}
+
+
+/* TOP BAR */
+
+.topbar{
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:30px;
+}
+
+.icon-btn{
+    width:44px;
+    height:44px;
+
+    border-radius:15px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.055);
+
+    color:white;
+
+    font-size:20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(18px);
+
+    transition:.25s;
+}
+
+.icon-btn:hover{
+    transform:translateY(-2px);
+
+    border-color:rgba(139,92,246,.5);
+
+    box-shadow:
+        0 8px 25px rgba(139,92,246,.15);
+}
+
+
+.logo{
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    font-size:16px;
+}
+
+.logo-mark{
+    width:30px;
+    height:30px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 7px 25px rgba(139,92,246,.35);
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+.hero-icon{
+    width:82px;
+    height:82px;
+
+    margin:0 auto 17px;
+
+    border-radius:26px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #ea580c
+        );
+
+    box-shadow:
+        0 15px 50px rgba(245,158,11,.30),
+        inset 0 1px 0 rgba(255,255,255,.25);
+
+    position:relative;
+}
+
+.hero-icon::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-7px;
+
+    border-radius:32px;
+
+    border:1px solid rgba(245,158,11,.20);
+
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+
+    50%{
+        transform:scale(1.07);
+        opacity:.2;
+    }
+
+}
+
+.hero h1{
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:-1px;
+
+    margin-bottom:7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #fcd34d,
+            #fff
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* PROGRESS */
+
+.progress-card{
+    padding:18px;
+
+    margin-bottom:25px;
+
+    border-radius:22px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.035)
+        );
+
+    backdrop-filter:blur(20px);
+}
+
+.progress-top{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:11px;
+}
+
+.progress-top span:first-child{
+    font-size:13px;
+
+    color:#aaa6bb;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+}
+
+.progress-percent{
+    font-size:14px;
+
+    color:#fcd34d;
+
+    font-weight:800;
+}
+
+.progress-bar{
+    height:8px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+}
+
+.progress-fill{
+    height:100%;
+
+    width:0%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f59e0b,
+            #ec4899
+        );
+
+    transition:.35s ease;
+}
+
+
+/* SECTION TITLE */
+
+.section-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:14px;
+}
+
+.section-title h3{
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    color:#aaa6bb;
+}
+
+.section-title span{
+    font-size:12px;
+
+    color:#747185;
+}
+
+
+/* DAILY LIST */
+
+.day-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+
+/* DAY CARD */
+
+.day-card{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:18px;
+
+    border-radius:23px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.035)
+        );
+
+    backdrop-filter:blur(20px);
+
+    transition:.3s;
+}
+
+.day-card:hover{
+    transform:translateY(-3px);
+
+    border-color:rgba(139,92,246,.35);
+
+    box-shadow:
+        0 15px 40px var(--shadow);
+}
+
+
+/* COMPLETED CARD */
+
+.day-card.completed{
+    border-color:rgba(34,197,94,.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,.09),
+            rgba(255,255,255,.035)
+        );
+}
+
+.day-card.completed .day-title{
+    color:#86efac;
+}
+
+
+/* DAY HEADER */
+
+.day-header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.day-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:17px;
+
+    font-weight:850;
+}
+
+.date-badge{
+    padding:6px 9px;
+
+    border-radius:9px;
+
+    background:rgba(245,158,11,.12);
+
+    border:1px solid rgba(245,158,11,.20);
+
+    color:#fcd34d;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* CHECKBOX */
+
+.check{
+    width:28px;
+    height:28px;
+
+    border-radius:9px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.055);
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:15px;
+
+    transition:.25s;
+}
+
+.check:hover{
+    border-color:#f59e0b;
+}
+
+.day-card.completed .check{
+    background:#16a34a;
+
+    border-color:#22c55e;
+}
+
+
+/* SUBJECTS */
+
+.subject-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.subject{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:11px 12px;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    color:#c9c7d3;
+
+    font-size:13px;
+
+    line-height:1.4;
+}
+
+.subject-icon{
+    width:27px;
+    height:27px;
+
+    flex-shrink:0;
+
+    border-radius:8px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(139,92,246,.12);
+
+    font-size:14px;
+}
+
+
+/* NAVIGATION */
+
+.navigation{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.nav-btn{
+    padding:13px;
+
+    border-radius:15px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.055);
+
+    color:#c9c7d3;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+
+    border-color:rgba(139,92,246,.4);
+
+    background:rgba(139,92,246,.10);
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    margin-top:45px;
+
+    padding:26px 10px 12px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#777384;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+footer strong{
+    color:#aaa5b8;
+}
+
+
+/* LIGHT MODE */
+
+body.light{
+    --bg:#f4f3fa;
+    --bg2:#ffffff;
+
+    --text:#181725;
+    --muted:#6f6b7c;
+
+    --border:rgba(30,25,60,.09);
+
+    --card:rgba(255,255,255,.7);
+
+    --shadow:rgba(30,20,60,.12);
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(139,92,246,.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #f5f3ff,
+            #ffffff
+        );
+}
+
+body.light .icon-btn{
+    color:#22202d;
+
+    background:rgba(255,255,255,.7);
+}
+
+body.light .progress-card,
+body.light .day-card{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.85),
+            rgba(255,255,255,.65)
+        );
+}
+
+body.light .subject,
+body.light .nav-btn{
+    background:rgba(0,0,0,.035);
+
+    color:#494657;
+}
+
+body.light .hero h1{
+    background:
+        linear-gradient(
+            90deg,
+            #171522,
+            #ea580c,
+            #171522
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+
+/* MOBILE */
+
+@media(max-width:520px){
+
+    .container{
+        padding:15px 13px 25px;
+    }
+
+    .topbar{
+        margin-bottom:27px;
+    }
+
+    .hero{
+        margin-bottom:25px;
+    }
+
+    .hero-icon{
+        width:74px;
+        height:74px;
+
+        border-radius:23px;
+
+        font-size:33px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .day-card{
+        padding:15px;
+
+        border-radius:20px;
+    }
+
+    .day-title{
+        font-size:15px;
+    }
+
+    .subject{
+        font-size:12px;
+
+        padding:10px;
+    }
+
+    .navigation{
+        gap:9px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <button
+            class="icon-btn"
+            onclick="goBack()"
+        >
+            ←
+        </button>
+
+
+        <div class="logo">
+
+            <div class="logo-mark">
+                S
+            </div>
+
+            STUDY-HUB
+
+        </div>
+
+
+        <button
+            class="icon-btn"
+            onclick="toggleTheme()"
+            id="themeBtn"
+        >
+            ☀️
+        </button>
+
+    </div>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🍂
+        </div>
+
+        <h1>
+            October • Week 1
+        </h1>
+
+        <p>
+            October 4 – October 10
+            <br>
+            🔥 Foundation Phase
+        </p>
+
+    </section>
+
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-top">
+
+            <span>
+                Weekly Progress
+            </span>
+
+            <span
+                class="progress-percent"
+                id="progressPercent"
+            >
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SECTION TITLE -->
+
+    <div class="section-title">
+
+        <h3>
+            Daily Study Plan
+        </h3>
+
+        <span>
+            7 Days
+        </span>
+
+    </div>
+
+
+
+    <!-- DAILY LIST -->
+
+    <div class="day-list">
+
+
+        <!-- OCTOBER 4 -->
+
+        <div class="day-card" data-day="4">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 04
+                    </span>
+
+                    Sunday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(4)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        ⚛️
+                    </span>
+
+                    Physics — Dual Nature & Radiation
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        ⚛️
+                    </span>
+
+                    Physics — Atoms & Nuclei
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        ⚡
+                    </span>
+
+                    Physics — Semiconductor
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 5 -->
+
+        <div class="day-card" data-day="5">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 05
+                    </span>
+
+                    Monday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(5)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🔥
+                    </span>
+
+                    Physics — Heat & Thermodynamics
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🧪
+                    </span>
+
+                    Chemistry — Solid State
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        📐
+                    </span>
+
+                    Maths — Vectors
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 6 -->
+
+        <div class="day-card" data-day="6">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 06
+                    </span>
+
+                    Tuesday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(6)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🌊
+                    </span>
+
+                    Physics — Waves
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🧪
+                    </span>
+
+                    Chemistry — Thermodynamics
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        📐
+                    </span>
+
+                    Maths — 3D Geometry
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 7 -->
+
+        <div class="day-card" data-day="7">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 07
+                    </span>
+
+                    Wednesday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(7)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        ⚡
+                    </span>
+
+                    Physics — AC Current
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🧪
+                    </span>
+
+                    Chemistry — Ionic Equilibrium
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        📈
+                    </span>
+
+                    Maths — Differentiation
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 8 -->
+
+        <div class="day-card" data-day="8">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 08
+                    </span>
+
+                    Thursday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(8)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🔄
+                    </span>
+
+                    Physics — SHM
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🧪
+                    </span>
+
+                    Chemistry — Coordination Compound
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        📈
+                    </span>
+
+                    Maths — Application of Derivative
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 9 -->
+
+        <div class="day-card" data-day="9">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 09
+                    </span>
+
+                    Friday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(9)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🔬
+                    </span>
+
+                    Physics — Wave Optics
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🧬
+                    </span>
+
+                    Chemistry — Polymers
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        ∫
+                    </span>
+
+                    Maths — Differential Equation
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OCTOBER 10 -->
+
+        <div class="day-card" data-day="10">
+
+            <div class="day-header">
+
+                <div class="day-title">
+
+                    <span class="date-badge">
+                        OCT 10
+                    </span>
+
+                    Saturday
+
+                </div>
+
+                <button
+                    class="check"
+                    onclick="toggleDay(10)"
+                >
+                    ✓
+                </button>
+
+            </div>
+
+
+            <div class="subject-list">
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🔁
+                    </span>
+
+                    Physics — Revision
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🔁
+                    </span>
+
+                    Chemistry — Revision
+
+                </div>
+
+                <div class="subject">
+
+                    <span class="subject-icon">
+                        🎯
+                    </span>
+
+                    Maths — PYQs
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <div class="navigation">
+
+        <button
+            class="nav-btn"
+            onclick="goBack()"
+        >
+            ← October
+        </button>
+
+        <button
+            class="nav-btn"
+            onclick="nextWeek()"
+        >
+            Week 2 →
+        </button>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026–27 STUDY-HUB
+        </div>
+
+        <div>
+            Made with ❤️ by
+            <strong>
+                chiragnemade08
+            </strong>
+        </div>
+
+    </footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* BACK */
+
+function goBack(){
+
+    history.back();
+
+}
+
+
+/* NEXT WEEK */
+
+function nextWeek(){
+
+    window.location.href =
+        "week-2.html";
+
+}
+
+
+/* STORAGE KEY */
+
+const storageKey =
+    "studyhub-october-week1-progress";
+
+
+/* TOGGLE DAY */
+
+function toggleDay(day){
+
+    const card =
+        document.querySelector(
+            '[data-day="' + day + '"]'
+        );
+
+    card.classList.toggle("completed");
+
+    saveProgress();
+
+    updateProgress();
+
+}
+
+
+/* SAVE */
+
+function saveProgress(){
+
+    const completed = [];
+
+    document
+        .querySelectorAll(".day-card.completed")
+        .forEach(card => {
+
+            completed.push(
+                card.dataset.day
+            );
+
+        });
+
+    localStorage.setItem(
+        storageKey,
+        JSON.stringify(completed)
+    );
+
+}
+
+
+/* LOAD */
+
+function loadProgress(){
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem(storageKey)
+            || "[]"
+        );
+
+    saved.forEach(day => {
+
+        const card =
+            document.querySelector(
+                '[data-day="' + day + '"]'
+            );
+
+        if(card){
+            card.classList.add("completed");
+        }
+
+    });
+
+    updateProgress();
+
+}
+
+
+/* UPDATE PROGRESS */
+
+function updateProgress(){
+
+    const cards =
+        document.querySelectorAll(".day-card");
+
+    const completed =
+        document.querySelectorAll(
+            ".day-card.completed"
+        ).length;
+
+    const total =
+        cards.length;
+
+    const percent =
+        Math.round(
+            (completed / total) * 100
+        );
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percent + "%";
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percent + "%";
+
+}
+
+
+/* THEME */
+
+const savedTheme =
+    localStorage.getItem(
+        "studyhub-theme"
+    );
+
+
+if(savedTheme === "light"){
+
+    document.body.classList.add("light");
+
+    document.getElementById(
+        "themeBtn"
+    ).textContent = "🌙";
+
+}
+
+
+function toggleTheme(){
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+    const light =
+        document.body.classList.contains(
+            "light"
+        );
+
+    localStorage.setItem(
+        "studyhub-theme",
+        light ? "light" : "dark"
+    );
+
+    document.getElementById(
+        "themeBtn"
+    ).textContent =
+        light ? "🌙" : "☀️";
+
+}
+
+
+/* START */
+
+loadProgress();
+
+</script>
+
+</body>
+</html>
