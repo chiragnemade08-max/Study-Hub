@@ -1,0 +1,4602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>October Week 1 | STUDY-HUB</title>
+
+<!-- PDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+    --bg:#090817;
+    --bg2:#100d24;
+    --card:#111025;
+    --card2:#15132d;
+    --text:#f6f5ff;
+    --muted:#aaa8bb;
+    --muted2:#77748d;
+    --border:rgba(255,255,255,.07);
+
+    --blue:#2196f3;
+    --cyan:#35bdf6;
+    --purple:#7854ff;
+    --orange:#ff9d00;
+    --pink:#ed3d83;
+    --green:#26d968;
+    --danger:#ff526d;
+
+    --shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+body.light{
+    --bg:#f4f6fc;
+    --bg2:#edf1fa;
+    --card:#ffffff;
+    --card2:#f7f9ff;
+    --text:#171827;
+    --muted:#686a7b;
+    --muted2:#888b9d;
+    --border:rgba(20,30,60,.09);
+    --shadow:0 18px 40px rgba(45,60,100,.12);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(112,58,255,.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(0,174,255,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(235,46,126,.08),
+            transparent 30%
+        ),
+        var(--bg);
+
+    overflow-x:hidden;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page{
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:24px 24px 50px;
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar{
+    display:grid;
+
+    grid-template-columns:
+        54px
+        1fr
+        auto
+        auto;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:34px;
+}
+
+.logo{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:10px;
+}
+
+.logo-icon{
+    width:50px;
+    height:50px;
+
+    border-radius:17px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    font-weight:900;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8c52ff,
+            #5e3de5
+        );
+
+    box-shadow:
+        0 10px 30px rgba(113,71,255,.35);
+}
+
+.logo-text{
+    font-size:20px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    white-space:nowrap;
+}
+
+.icon-btn{
+    width:54px;
+    height:54px;
+
+    border-radius:17px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.025);
+
+    color:var(--text);
+
+    font-size:25px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.icon-btn:hover{
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(120,84,255,.4);
+}
+
+.icon-btn:active{
+    transform:scale(.94);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    text-align:center;
+
+    margin-bottom:32px;
+}
+
+.hero-icon{
+    width:134px;
+    height:134px;
+
+    margin:8px auto 30px;
+
+    border-radius:40px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:65px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb300,
+            #ff6500
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(255,174,0,.25),
+        0 0 40px rgba(255,132,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.hero h1{
+    font-size:42px;
+
+    line-height:1.1;
+
+    font-weight:950;
+
+    margin-bottom:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9d00,
+            #ffcc34
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+/* =========================================
+   MISSION
+========================================= */
+
+.mission{
+    width:max-content;
+    max-width:100%;
+
+    margin:25px auto 34px;
+
+    padding:13px 25px;
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,157,0,.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,157,0,.10),
+            rgba(255,82,109,.06)
+        );
+
+    color:#ffbd27;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+/* =========================================
+   TODAY
+========================================= */
+
+.today-box{
+    padding:24px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(31,92,180,.25),
+            rgba(50,36,120,.12)
+        );
+
+    border:
+        1px solid rgba(44,176,255,.20);
+
+    margin-bottom:36px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.today-title{
+    font-size:22px;
+
+    font-weight:900;
+
+    color:#52c9ff;
+}
+
+.today-sub{
+    color:var(--muted);
+
+    margin-top:10px;
+
+    font-size:15px;
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-card{
+    padding:28px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.008)
+        );
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:40px;
+}
+
+.progress-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.progress-title{
+    font-size:21px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.progress-percent{
+    font-size:25px;
+
+    font-weight:950;
+
+    color:#ffbe20;
+}
+
+.progress-track{
+    height:16px;
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+
+    width:0%;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9d00,
+            #ff526d,
+            #ed3d83
+        );
+
+    transition:.4s ease;
+}
+
+.progress-count{
+    text-align:right;
+
+    margin-top:17px;
+
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-heading{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.section-heading h2{
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    color:#bcb9cb;
+}
+
+.section-heading span{
+    color:#9996a9;
+
+    font-size:17px;
+}
+
+/* =========================================
+   DAY CARD
+========================================= */
+
+.day-card{
+    position:relative;
+
+    margin-bottom:28px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(21,19,45,.96),
+            rgba(9,9,25,.95)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.30);
+
+    transition:.25s;
+}
+
+body.light .day-card{
+    background:var(--card);
+}
+
+.day-card.today{
+    border-color:
+        rgba(20,206,255,.45);
+
+    box-shadow:
+        0 0 0 1px rgba(20,206,255,.05),
+        0 20px 55px rgba(0,0,0,.25),
+        0 0 35px rgba(20,190,255,.08);
+}
+
+.day-card.completed{
+    border-color:
+        rgba(38,217,104,.40);
+
+    box-shadow:
+        0 0 0 1px rgba(38,217,104,.04),
+        0 20px 55px rgba(0,0,0,.25),
+        0 0 30px rgba(38,217,104,.08);
+}
+
+/* =========================================
+   DAY HEADER
+========================================= */
+
+.day-header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:28px 26px 24px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.day-left{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+.date-box{
+    width:82px;
+    height:82px;
+
+    flex-shrink:0;
+
+    border-radius:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6951ff,
+            #8458ff
+        );
+
+    box-shadow:
+        0 12px 28px rgba(111,76,255,.25);
+}
+
+.today .date-box{
+    background:
+        linear-gradient(
+            145deg,
+            #06a9e9,
+            #2083ed
+        );
+
+    box-shadow:
+        0 12px 28px rgba(16,158,237,.30);
+}
+
+.date-number{
+    font-size:31px;
+
+    line-height:1;
+
+    font-weight:950;
+}
+
+.date-month{
+    margin-top:5px;
+
+    font-size:12px;
+
+    opacity:.85;
+}
+
+.day-name{
+    font-size:26px;
+
+    font-weight:900;
+}
+
+.day-full-date{
+    margin-top:6px;
+
+    font-size:15px;
+
+    color:var(--muted);
+}
+
+.day-status{
+    padding:9px 14px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid rgba(255,255,255,.04);
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:#9d9aac;
+
+    white-space:nowrap;
+}
+
+.day-status.complete{
+    color:#4be47c;
+
+    background:
+        rgba(38,217,104,.09);
+
+    border-color:
+        rgba(38,217,104,.13);
+}
+
+.day-status.today-status{
+    color:#57d9ff;
+}
+
+/* =========================================
+   TASKS
+========================================= */
+
+.tasks{
+    padding:12px 22px 24px;
+}
+
+.task{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    min-height:76px;
+
+    padding:13px 8px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.045);
+
+    cursor:pointer;
+}
+
+.task:last-child{
+    border-bottom:none;
+}
+
+.task-check{
+    width:40px;
+    height:40px;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    border:
+        2px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.015);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:950;
+
+    transition:.2s;
+}
+
+.task.checked .task-check{
+    border-color:#21d85f;
+
+    background:
+        linear-gradient(
+            145deg,
+            #25dc61,
+            #0eae4b
+        );
+
+    box-shadow:
+        0 0 15px rgba(38,217,104,.28);
+}
+
+.task-info{
+    min-width:0;
+}
+
+.task-title{
+    font-size:18px;
+
+    line-height:1.4;
+
+    font-weight:850;
+
+    color:#f2f0fa;
+}
+
+body.light .task-title{
+    color:var(--text);
+}
+
+.task.checked .task-title{
+    color:#77748a;
+
+    text-decoration:line-through;
+}
+
+.task-meta{
+    margin-top:6px;
+
+    font-size:13px;
+
+    color:#a5a2b4;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.task-meta span{
+    color:#686578;
+
+    margin-left:5px;
+}
+
+/* =========================================
+   DAY COMPLETE MESSAGE
+========================================= */
+
+.day-complete-message{
+    display:none;
+
+    margin:0 22px 22px;
+
+    padding:17px 16px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    color:#49df78;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(38,217,104,.12),
+            rgba(38,217,104,.05)
+        );
+
+    border:
+        1px solid rgba(38,217,104,.18);
+
+    font-size:15px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 0 25px rgba(38,217,104,.06);
+
+    animation:
+        completionPop .35s ease;
+}
+
+.day-card.completed .day-complete-message{
+    display:block;
+}
+
+@keyframes completionPop{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================================
+   REMINDER
+========================================= */
+
+.reminder-card{
+    padding:22px;
+
+    border-radius:25px;
+
+    border:
+        1px solid rgba(255,184,0,.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,166,0,.08),
+            rgba(255,80,100,.03)
+        );
+
+    margin:10px 0 35px;
+}
+
+.reminder-row{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.reminder-icon{
+    width:50px;
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    font-size:25px;
+
+    background:
+        rgba(255,166,0,.10);
+}
+
+.reminder-content{
+    flex:1;
+}
+
+.reminder-title{
+    font-weight:900;
+
+    font-size:17px;
+}
+
+.reminder-text{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:4px;
+}
+
+.reminder-btn{
+    border:0;
+
+    padding:11px 14px;
+
+    border-radius:13px;
+
+    color:white;
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d00,
+            #ff526d
+        );
+
+    cursor:pointer;
+}
+
+.reminder-btn.enabled{
+    background:#173c2a;
+
+    color:#4be47c;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+    text-align:center;
+
+    margin-top:50px;
+
+    padding:28px 10px 10px;
+
+    color:#77748b;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+footer strong{
+    color:#aaa7bb;
+}
+
+/* =========================================
+   EXPORT MODAL
+========================================= */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:18px;
+
+    background:
+        rgba(2,3,10,.76);
+
+    backdrop-filter:blur(15px);
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.export-modal{
+    width:100%;
+
+    max-width:680px;
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    padding:28px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111a32,
+            #0d1428
+        );
+
+    border:
+        1px solid rgba(100,150,255,.10);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.65);
+}
+
+.modal-head{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.modal-title{
+    font-size:30px;
+
+    font-weight:950;
+}
+
+.close-modal{
+    width:54px;
+    height:54px;
+
+    border-radius:17px;
+
+    border:
+        1px solid rgba(255,255,255,.05);
+
+    background:
+        rgba(255,255,255,.015);
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+.modal-label{
+    color:#9fb9ff;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    margin:25px 0 14px;
+}
+
+.week-info{
+    padding:20px;
+
+    border-radius:22px;
+
+    color:#bad1ff;
+
+    background:
+        rgba(29,73,154,.16);
+
+    border:
+        1px solid rgba(53,125,255,.16);
+
+    font-size:17px;
+
+    font-weight:850;
+}
+
+.date-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.date-option{
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:19px;
+
+    border-radius:22px;
+
+    border:
+        1px solid rgba(255,255,255,.045);
+
+    background:
+        rgba(255,255,255,.008);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.date-option:hover{
+    border-color:
+        rgba(70,130,255,.25);
+}
+
+.date-option input{
+    width:25px;
+    height:25px;
+
+    accent-color:#2875ee;
+
+    flex-shrink:0;
+}
+
+.date-option span{
+    font-size:17px;
+}
+
+.filter-list{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+}
+
+.filter-option{
+    padding:18px 8px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    border:
+        1px solid rgba(255,255,255,.05);
+
+    color:#a9a9bb;
+
+    cursor:pointer;
+
+    font-weight:850;
+}
+
+.filter-option input{
+    display:none;
+}
+
+.filter-option.active{
+    border-color:#3d8fff;
+
+    color:white;
+
+    background:
+        rgba(35,105,230,.13);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(61,143,255,.1);
+}
+
+.modal-actions{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.2fr;
+
+    gap:12px;
+
+    margin-top:30px;
+}
+
+.cancel-btn,
+.export-btn{
+    min-height:60px;
+
+    border:0;
+
+    border-radius:18px;
+
+    font-size:17px;
+
+    font-weight:950;
+
+    cursor:pointer;
+}
+
+.cancel-btn{
+    background:
+        rgba(255,255,255,.015);
+
+    color:#bcbaca;
+}
+
+.export-btn{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #286ff2,
+            #28b8ed
+        );
+
+    box-shadow:
+        0 12px 30px rgba(31,116,238,.20);
+}
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    z-index:2000;
+
+    max-width:
+        calc(100% - 35px);
+
+    padding:14px 20px;
+
+    border-radius:18px;
+
+    background:#18162a;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow);
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .page{
+        padding:20px 16px 40px;
+    }
+
+    .topbar{
+        grid-template-columns:
+            52px 1fr 52px 52px;
+
+        gap:7px;
+
+        margin-bottom:30px;
+    }
+
+    .logo{
+        gap:8px;
+    }
+
+    .logo-icon{
+        width:48px;
+        height:48px;
+    }
+
+    .logo-text{
+        font-size:17px;
+        letter-spacing:2px;
+    }
+
+    .icon-btn{
+        width:52px;
+        height:52px;
+    }
+
+    .hero-icon{
+        width:134px;
+        height:134px;
+
+        margin-bottom:28px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .mission{
+        font-size:14px;
+
+        padding:12px 18px;
+    }
+
+    .today-box{
+        padding:22px 16px;
+    }
+
+    .progress-card{
+        padding:23px;
+    }
+
+    .progress-title{
+        font-size:18px;
+    }
+
+    .day-header{
+        padding:24px 20px 20px;
+    }
+
+    .day-left{
+        gap:13px;
+    }
+
+    .date-box{
+        width:70px;
+        height:70px;
+
+        border-radius:21px;
+    }
+
+    .date-number{
+        font-size:27px;
+    }
+
+    .day-name{
+        font-size:21px;
+    }
+
+    .day-full-date{
+        font-size:13px;
+    }
+
+    .day-status{
+        font-size:11px;
+
+        padding:8px 9px;
+    }
+
+    .tasks{
+        padding:8px 16px 18px;
+    }
+
+    .task{
+        gap:13px;
+
+        min-height:70px;
+
+        padding:11px 6px;
+    }
+
+    .task-check{
+        width:40px;
+        height:40px;
+    }
+
+    .task-title{
+        font-size:16px;
+    }
+
+    .task-meta{
+        font-size:12px;
+    }
+
+    .reminder-row{
+        align-items:flex-start;
+    }
+
+    .reminder-btn{
+        padding:9px;
+
+        font-size:12px;
+    }
+
+    .export-modal{
+        padding:22px 18px;
+
+        border-radius:28px;
+    }
+
+    .modal-title{
+        font-size:25px;
+    }
+
+    .filter-list{
+        gap:7px;
+    }
+
+    .filter-option{
+        font-size:13px;
+
+        padding:16px 5px;
+    }
+
+    .modal-actions{
+        grid-template-columns:1fr;
+    }
+
+    .export-btn{
+        order:-1;
+    }
+
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media(max-width:380px){
+
+    .logo-text{
+        font-size:15px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .day-header{
+        padding:21px 15px;
+    }
+
+    .date-box{
+        width:62px;
+        height:62px;
+    }
+
+    .day-name{
+        font-size:19px;
+    }
+
+    .day-status{
+        max-width:85px;
+
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- =====================================
+         TOP BAR
+    ====================================== -->
+
+    <div class="topbar">
+
+        <button
+            class="icon-btn"
+            onclick="goBack()"
+            aria-label="Back">
+
+            ←
+
+        </button>
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div class="logo-text">
+                STUDY-HUB
+            </div>
+
+        </div>
+
+
+        <button
+            class="icon-btn"
+            onclick="openExport()"
+            aria-label="Export Progress">
+
+            📤
+
+        </button>
+
+
+        <button
+            class="icon-btn"
+            onclick="toggleTheme()"
+            aria-label="Theme">
+
+            ☀️
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🍂
+        </div>
+
+        <h1>
+            October Week 1
+        </h1>
+
+        <p>
+            Build your foundation one task at a time.<br>
+            Complete every task to finish each day.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================
+         MISSION
+    ====================================== -->
+
+    <div class="mission">
+        🔥 OCTOBER — STUDY MISSION
+    </div>
+
+
+    <!-- =====================================
+         TODAY
+    ====================================== -->
+
+    <section class="today-box">
+
+        <div
+            class="today-title"
+            id="todayTitle">
+
+            📅 TODAY
+
+        </div>
+
+        <div
+            class="today-sub"
+            id="todaySubtitle">
+
+            Your tasks for today are highlighted below.
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         REMINDER
+    ====================================== -->
+
+    <section class="reminder-card">
+
+        <div class="reminder-row">
+
+            <div class="reminder-icon">
+                🔔
+            </div>
+
+
+            <div class="reminder-content">
+
+                <div class="reminder-title">
+                    Daily Reminder
+                </div>
+
+                <div
+                    class="reminder-text"
+                    id="reminderText">
+
+                    Get a reminder to complete today's tasks.
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="reminder-btn"
+                id="reminderBtn"
+                onclick="enableReminder()">
+
+                Enable
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PROGRESS
+    ====================================== -->
+
+    <section class="progress-card">
+
+        <div class="progress-top">
+
+            <div class="progress-title">
+                WEEK PROGRESS
+            </div>
+
+            <div
+                class="progress-percent"
+                id="progressPercent">
+
+                0%
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+
+        <div
+            class="progress-count"
+            id="progressCount">
+
+            0 / 17 tasks completed
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TIMETABLE
+    ====================================== -->
+
+    <div class="section-heading">
+
+        <h2>
+            DAILY TIMETABLE
+        </h2>
+
+        <span>
+            4–10 OCT
+        </span>
+
+    </div>
+
+
+    <!-- =====================================
+         4 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-04">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        4
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Sunday
+                    </div>
+
+                    <div class="day-full-date">
+                        4 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-4-1"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        ☢️ Dual Nature & Radiation — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-4-2"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        ⚛️ Structure of Atoms & Nuclei — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-4-3"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        💡 Semiconductor — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-4-4"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🧲 Magnetic Materials — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DYNAMIC DAY COMPLETION MESSAGE -->
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         5 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-05">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        5
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Monday
+                    </div>
+
+                    <div class="day-full-date">
+                        5 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-5-1"
+                data-subject="CHEMISTRY"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🌱 Green Chemistry — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-5-2"
+                data-subject="CHEMISTRY"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🧬 Biomolecules — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         6 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-06">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        6
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Tuesday
+                    </div>
+
+                    <div class="day-full-date">
+                        6 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-6-1"
+                data-subject="CHEMISTRY"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🧪 Halogen Derivatives — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-6-2"
+                data-subject="CHEMISTRY"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🧵 Polymers — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         7 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-07">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        7
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Wednesday
+                    </div>
+
+                    <div class="day-full-date">
+                        7 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-7-1"
+                data-subject="PHYSICS"
+                data-board="MHT-CET"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🏃 Motion — MHT-CET
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• MHT-CET</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-7-2"
+                data-subject="CHEMISTRY"
+                data-board="MHT-CET"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        ⚖️ Mole Concept — MHT-CET
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• MHT-CET</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-7-3"
+                data-subject="CHEMISTRY"
+                data-board="MHT-CET"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        ⚛️ Structure of Atoms — MHT-CET
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• MHT-CET</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         8 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-08">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        8
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Thursday
+                    </div>
+
+                    <div class="day-full-date">
+                        8 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-8-1"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🌊 Fluids — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-8-2"
+                data-subject="CHEMISTRY"
+                data-board="MHT-CET"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        💎 Solid State — MHT-CET 50%
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• MHT-CET</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         9 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-09">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        9
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Friday
+                    </div>
+
+                    <div class="day-full-date">
+                        9 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-9-1"
+                data-subject="PHYSICS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        🌀 Rotational Dynamics — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        PHYSICS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-9-2"
+                data-subject="CHEMISTRY"
+                data-board="MHT-CET"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        💎 Solid State — MHT-CET 50% ✅
+                    </div>
+
+                    <div class="task-meta">
+                        CHEMISTRY <span>• MHT-CET</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         10 OCTOBER
+    ====================================== -->
+
+    <section
+        class="day-card"
+        data-date="2026-10-10">
+
+        <div class="day-header">
+
+            <div class="day-left">
+
+                <div class="date-box">
+
+                    <div class="date-number">
+                        10
+                    </div>
+
+                    <div class="date-month">
+                        OCT
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="day-name">
+                        Saturday
+                    </div>
+
+                    <div class="day-full-date">
+                        10 October 2026
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="day-status">
+                ⏳ In Progress
+            </div>
+
+        </div>
+
+
+        <div class="tasks">
+
+            <div
+                class="task"
+                data-id="oct1-10-1"
+                data-subject="MATHS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        ∫ Differential Equation — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        MATHS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="task"
+                data-id="oct1-10-2"
+                data-subject="MATHS"
+                data-board="HSC"
+                onclick="toggleTask(this)">
+
+                <div class="task-check"></div>
+
+                <div class="task-info">
+
+                    <div class="task-title">
+                        📐 Line & Plane — HSC
+                    </div>
+
+                    <div class="task-meta">
+                        MATHS <span>• HSC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-complete-message"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <div>
+            © 2026–27 <strong>STUDY-HUB</strong>
+        </div>
+
+        <div>
+            Made with ❤️ by <strong>Chirag Nemade</strong>
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- =========================================
+     EXPORT MODAL
+========================================= -->
+
+<div
+    class="modal-overlay"
+    id="exportModal">
+
+    <div class="export-modal">
+
+        <div class="modal-head">
+
+            <div class="modal-title">
+                📤 Export Progress
+            </div>
+
+            <button
+                class="close-modal"
+                onclick="closeExport()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-label">
+            WEEK
+        </div>
+
+        <div class="week-info">
+            🔥 Week 1 • 4 October – 10 October 2026
+        </div>
+
+
+        <div class="modal-label">
+            SELECT DATES
+        </div>
+
+
+        <div class="date-list">
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-04"
+                    checked>
+
+                <span>
+                    04 Oct • Sunday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-05">
+
+                <span>
+                    05 Oct • Monday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-06">
+
+                <span>
+                    06 Oct • Tuesday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-07">
+
+                <span>
+                    07 Oct • Wednesday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-08">
+
+                <span>
+                    08 Oct • Thursday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-09">
+
+                <span>
+                    09 Oct • Friday
+                </span>
+
+            </label>
+
+
+            <label class="date-option">
+
+                <input
+                    type="checkbox"
+                    class="export-date"
+                    value="2026-10-10">
+
+                <span>
+                    10 Oct • Saturday
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-label">
+            EXPORT TASKS
+        </div>
+
+
+        <div class="filter-list">
+
+            <label
+                class="filter-option active"
+                onclick="setExportFilter(this,'completed')">
+
+                <input
+                    type="radio"
+                    name="exportFilter"
+                    value="completed"
+                    checked>
+
+                ☑️ Completed
+
+            </label>
+
+
+            <label
+                class="filter-option"
+                onclick="setExportFilter(this,'incomplete')">
+
+                <input
+                    type="radio"
+                    name="exportFilter"
+                    value="incomplete">
+
+                ⏭️ Incomplete
+
+            </label>
+
+
+            <label
+                class="filter-option"
+                onclick="setExportFilter(this,'all')">
+
+                <input
+                    type="radio"
+                    name="exportFilter"
+                    value="all">
+
+                📋 All
+
+            </label>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="cancel-btn"
+                onclick="closeExport()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                class="export-btn"
+                onclick="exportPDF()">
+
+                📄 Export PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     TOAST
+========================================= -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<script>
+
+/* =========================================
+   CONFIG
+========================================= */
+
+const STORAGE_KEY =
+    "studyhub-october-week1-tasks";
+
+const THEME_KEY =
+    "studyhub-theme";
+
+const REMINDER_KEY =
+    "studyhub-daily-reminder";
+
+let exportFilter = "completed";
+
+
+/* =========================================
+   BACK
+========================================= */
+
+function goBack(){
+
+    if(history.length > 1){
+
+        history.back();
+
+    }else{
+
+        window.location.href =
+            "october.html";
+
+    }
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(()=>{
+
+            toast.classList.remove("show");
+
+        },3000);
+
+}
+
+
+/* =========================================
+   THEME
+========================================= */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+    const light =
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        THEME_KEY,
+        light ? "light" : "dark"
+    );
+
+    updateThemeIcon();
+
+}
+
+
+function updateThemeIcon(){
+
+    const buttons =
+        document.querySelectorAll(".icon-btn");
+
+    const btn =
+        buttons[3];
+
+    if(!btn) return;
+
+    const light =
+        document.body.classList.contains("light");
+
+    btn.textContent =
+        light ? "🌙" : "☀️";
+
+}
+
+
+function loadTheme(){
+
+    const saved =
+        localStorage.getItem(THEME_KEY);
+
+    if(saved === "light"){
+
+        document.body.classList.add("light");
+
+    }
+
+    updateThemeIcon();
+
+}
+
+
+/* =========================================
+   TASK STORAGE
+========================================= */
+
+function getSavedTasks(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(STORAGE_KEY)
+        ) || {};
+
+    }catch(e){
+
+        return {};
+
+    }
+
+}
+
+
+function saveTasks(){
+
+    const state = {};
+
+    document
+        .querySelectorAll(".task")
+        .forEach(task=>{
+
+            state[task.dataset.id] =
+                task.classList.contains("checked");
+
+        });
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(state)
+    );
+
+}
+
+
+/* =========================================
+   LOAD TASKS
+========================================= */
+
+function loadTasks(){
+
+    const state =
+        getSavedTasks();
+
+    document
+        .querySelectorAll(".task")
+        .forEach(task=>{
+
+            if(
+                state[task.dataset.id] === true
+            ){
+
+                task.classList.add("checked");
+
+                task.querySelector(
+                    ".task-check"
+                ).textContent = "✓";
+
+            }
+
+        });
+
+    updateEverything();
+
+}
+
+
+/* =========================================
+   TOGGLE TASK
+========================================= */
+
+function toggleTask(task){
+
+    task.classList.toggle("checked");
+
+    const check =
+        task.querySelector(".task-check");
+
+
+    if(
+        task.classList.contains("checked")
+    ){
+
+        check.textContent =
+            "✓";
+
+    }else{
+
+        check.textContent =
+            "";
+
+    }
+
+
+    saveTasks();
+
+    updateEverything();
+
+}
+
+
+/* =========================================
+   UPDATE DAY STATUS
+========================================= */
+
+function updateDayStatus(card){
+
+    const tasks =
+        card.querySelectorAll(".task");
+
+    const completed =
+        card.querySelectorAll(
+            ".task.checked"
+        ).length;
+
+    const status =
+        card.querySelector(".day-status");
+
+    const completeMessage =
+        card.querySelector(
+            ".day-complete-message"
+        );
+
+
+    /*
+       Get the exact date shown
+       inside this day card.
+    */
+
+    const dateText =
+        card.querySelector(
+            ".day-full-date"
+        )?.textContent.trim()
+        || card.dataset.date;
+
+
+    /*
+       ALL tasks must be checked.
+    */
+
+    if(
+        completed === tasks.length &&
+        tasks.length > 0
+    ){
+
+        /*
+           Mark the complete day.
+        */
+
+        card.classList.add(
+            "completed"
+        );
+
+
+        /*
+           Change status.
+        */
+
+        status.textContent =
+            "✅ Complete";
+
+        status.classList.add(
+            "complete"
+        );
+
+
+        /*
+           DYNAMIC SUCCESS MESSAGE
+        */
+
+        if(completeMessage){
+
+            completeMessage.textContent =
+                `🎉 All tasks for ${dateText} completed!`;
+
+        }
+
+    }else{
+
+        /*
+           Day is not complete.
+        */
+
+        card.classList.remove(
+            "completed"
+        );
+
+
+        status.textContent =
+            "⏳ In Progress";
+
+        status.classList.remove(
+            "complete"
+        );
+
+
+        /*
+           Remove completion message.
+        */
+
+        if(completeMessage){
+
+            completeMessage.textContent =
+                "";
+
+        }
+
+    }
+
+}
+
+
+/* =========================================
+   UPDATE PROGRESS
+========================================= */
+
+function updateProgress(){
+
+    const allTasks =
+        document.querySelectorAll(".task");
+
+    const completed =
+        document.querySelectorAll(
+            ".task.checked"
+        ).length;
+
+    const total =
+        allTasks.length;
+
+
+    const percent =
+        total === 0
+            ? 0
+            : Math.round(
+                (completed / total) * 100
+            );
+
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percent + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percent + "%";
+
+
+    document.getElementById(
+        "progressCount"
+    ).textContent =
+        completed +
+        " / " +
+        total +
+        " tasks completed";
+
+}
+
+
+/* =========================================
+   UPDATE EVERYTHING
+========================================= */
+
+function updateEverything(){
+
+    document
+        .querySelectorAll(".day-card")
+        .forEach(updateDayStatus);
+
+    updateProgress();
+
+}
+
+
+/* =========================================
+   TODAY
+========================================= */
+
+function getLocalISODate(){
+
+    const now =
+        new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(
+            now.getMonth()+1
+        ).padStart(2,"0");
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(2,"0");
+
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function updateToday(){
+
+    const today =
+        getLocalISODate();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".day-card"
+        );
+
+
+    cards.forEach(card=>{
+
+        card.classList.remove(
+            "today"
+        );
+
+        const status =
+            card.querySelector(
+                ".day-status"
+            );
+
+        status.classList.remove(
+            "today-status"
+        );
+
+    });
+
+
+    const todayCard =
+        document.querySelector(
+            `.day-card[data-date="${today}"]`
+        );
+
+
+    if(todayCard){
+
+        todayCard.classList.add(
+            "today"
+        );
+
+
+        const status =
+            todayCard.querySelector(
+                ".day-status"
+            );
+
+
+        if(
+            !todayCard.classList.contains(
+                "completed"
+            )
+        ){
+
+            status.classList.add(
+                "today-status"
+            );
+
+        }
+
+
+        const date =
+            new Date(
+                today + "T12:00:00"
+            );
+
+
+        const dayName =
+            date.toLocaleDateString(
+                "en-IN",
+                {
+                    weekday:"long"
+                }
+            );
+
+
+        const dayNumber =
+            date.getDate();
+
+
+        const monthName =
+            date.toLocaleDateString(
+                "en-IN",
+                {
+                    month:"long"
+                }
+            );
+
+
+        document.getElementById(
+            "todayTitle"
+        ).textContent =
+            `📅 TODAY — ${dayNumber} ${monthName.toUpperCase()}`;
+
+
+        document.getElementById(
+            "todaySubtitle"
+        ).textContent =
+            `${dayName} • Your tasks for today are highlighted below.`;
+
+
+        setTimeout(()=>{
+
+            todayCard.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },500);
+
+
+    }else{
+
+        document.getElementById(
+            "todayTitle"
+        ).textContent =
+            "📅 OCTOBER WEEK 1";
+
+
+        document.getElementById(
+            "todaySubtitle"
+        ).textContent =
+            "Your Week 1 timetable is ready.";
+
+    }
+
+}
+
+
+/* =========================================
+   EXPORT MODAL
+========================================= */
+
+function openExport(){
+
+    document
+        .getElementById("exportModal")
+        .classList.add("show");
+
+}
+
+
+function closeExport(){
+
+    document
+        .getElementById("exportModal")
+        .classList.remove("show");
+
+}
+
+
+document
+    .getElementById("exportModal")
+    .addEventListener(
+        "click",
+        function(e){
+
+            if(e.target === this){
+
+                closeExport();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   EXPORT FILTER
+========================================= */
+
+function setExportFilter(
+    element,
+    filter
+){
+
+    exportFilter =
+        filter;
+
+
+    document
+        .querySelectorAll(
+            ".filter-option"
+        )
+        .forEach(el=>{
+
+            el.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    element.classList.add(
+        "active"
+    );
+
+}
+
+
+/* =========================================
+   PDF HELPERS
+========================================= */
+
+function safeText(text){
+
+    return String(text)
+        .replace(
+            /[\u{1F300}-\u{1FAFF}]/gu,
+            ""
+        )
+        .replace(
+            /[^\x00-\x7F]/g,
+            ""
+        )
+        .trim();
+
+}
+
+
+function formatDate(
+    dateString
+){
+
+    const date =
+        new Date(
+            dateString +
+            "T12:00:00"
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+function getDayName(
+    dateString
+){
+
+    const date =
+        new Date(
+            dateString +
+            "T12:00:00"
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            weekday:"long"
+        }
+    );
+
+}
+
+
+/* =========================================
+   EXPORT PDF
+========================================= */
+
+async function exportPDF(){
+
+    const selectedDates =
+        [
+            ...document.querySelectorAll(
+                ".export-date:checked"
+            )
+        ].map(
+            input=>input.value
+        );
+
+
+    if(
+        selectedDates.length === 0
+    ){
+
+        showToast(
+            "Please select at least one date."
+        );
+
+        return;
+
+    }
+
+
+    if(!window.jspdf){
+
+        showToast(
+            "PDF library is still loading. Check internet and try again."
+        );
+
+        return;
+
+    }
+
+
+    const {
+        jsPDF
+    } = window.jspdf;
+
+
+    const doc =
+        new jsPDF({
+            orientation:"portrait",
+            unit:"mm",
+            format:"a4"
+        });
+
+
+    const pageWidth =
+        doc.internal.pageSize.getWidth();
+
+    const pageHeight =
+        doc.internal.pageSize.getHeight();
+
+
+    /* COLORS */
+
+    const BLUE =
+        [39,111,242];
+
+    const LIGHT_BLUE =
+        [232,242,255];
+
+    const DARK =
+        [23,32,55];
+
+    const GRAY =
+        [95,105,125];
+
+    const GREEN =
+        [35,180,87];
+
+    const RED =
+        [225,70,80];
+
+    const WHITE =
+        [255,255,255];
+
+
+    /* HEADER */
+
+    doc.setFillColor(...BLUE);
+
+    doc.rect(
+        0,
+        0,
+        pageWidth,
+        35,
+        "F"
+    );
+
+
+    doc.setTextColor(...WHITE);
+
+    doc.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    doc.setFontSize(21);
+
+    doc.text(
+        "STUDY-HUB",
+        15,
+        15
+    );
+
+
+    doc.setFontSize(11);
+
+    doc.text(
+        "MHT-CET 2027 | October Week 1",
+        15,
+        24
+    );
+
+
+    doc.setFontSize(10);
+
+    doc.text(
+        "Chirag Nemade",
+        pageWidth - 15,
+        15,
+        {
+            align:"right"
+        }
+    );
+
+
+    let y = 47;
+
+
+    /* TITLE */
+
+    doc.setTextColor(...DARK);
+
+    doc.setFontSize(17);
+
+    doc.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    doc.text(
+        "Study Progress Report",
+        15,
+        y
+    );
+
+
+    y += 8;
+
+
+    doc.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    doc.setFontSize(10);
+
+    doc.setTextColor(...GRAY);
+
+    doc.text(
+        "Week 1 • 4 October – 10 October 2026",
+        15,
+        y
+    );
+
+
+    y += 12;
+
+
+    /* SUMMARY */
+
+    const allWeekTasks =
+        document.querySelectorAll(
+            ".task"
+        );
+
+    const totalWeekTasks =
+        allWeekTasks.length;
+
+    const completedWeekTasks =
+        document.querySelectorAll(
+            ".task.checked"
+        ).length;
+
+
+    doc.setFillColor(
+        ...LIGHT_BLUE
+    );
+
+
+    doc.roundedRect(
+        15,
+        y,
+        pageWidth - 30,
+        25,
+        4,
+        4,
+        "F"
+    );
+
+
+    doc.setTextColor(
+        ...BLUE
+    );
+
+    doc.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    doc.setFontSize(12);
+
+    doc.text(
+        "WEEK SUMMARY",
+        22,
+        y + 9
+    );
+
+
+    doc.setTextColor(
+        ...DARK
+    );
+
+    doc.setFontSize(11);
+
+    doc.text(
+        `${completedWeekTasks} / ${totalWeekTasks} tasks completed`,
+        22,
+        y + 18
+    );
+
+
+    const weekPercent =
+        totalWeekTasks
+            ? Math.round(
+                completedWeekTasks /
+                totalWeekTasks *
+                100
+            )
+            : 0;
+
+
+    doc.text(
+        `${weekPercent}%`,
+        pageWidth - 22,
+        y + 14,
+        {
+            align:"right"
+        }
+    );
+
+
+    y += 37;
+
+
+    /* SELECTED DATES */
+
+    for(
+        const dateString
+        of selectedDates
+    ){
+
+        const card =
+            document.querySelector(
+                `.day-card[data-date="${dateString}"]`
+            );
+
+
+        if(!card) continue;
+
+
+        const tasks =
+            [
+                ...card.querySelectorAll(
+                    ".task"
+                )
+            ];
+
+
+        const filteredTasks =
+            tasks.filter(task=>{
+
+                const completed =
+                    task.classList.contains(
+                        "checked"
+                    );
+
+
+                if(
+                    exportFilter ===
+                    "completed"
+                ){
+
+                    return completed;
+
+                }
+
+
+                if(
+                    exportFilter ===
+                    "incomplete"
+                ){
+
+                    return !completed;
+
+                }
+
+
+                return true;
+
+            });
+
+
+        /*
+           New page if needed.
+        */
+
+        if(
+            y >
+            pageHeight - 65
+        ){
+
+            doc.addPage();
+
+            y = 18;
+
+            doc.setFillColor(
+                ...BLUE
+            );
+
+            doc.rect(
+                0,
+                0,
+                pageWidth,
+                9,
+                "F"
+            );
+
+        }
+
+
+        /* DATE HEADER */
+
+        doc.setFillColor(
+            ...BLUE
+        );
+
+        doc.roundedRect(
+            15,
+            y,
+            pageWidth - 30,
+            19,
+            4,
+            4,
+            "F"
+        );
+
+
+        doc.setTextColor(
+            ...WHITE
+        );
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+        doc.setFontSize(13);
+
+        doc.text(
+            `${getDayName(dateString)} • ${formatDate(dateString)}`,
+            21,
+            y + 12
+        );
+
+
+        y += 26;
+
+
+        /*
+           No matching tasks.
+        */
+
+        if(
+            filteredTasks.length === 0
+        ){
+
+            doc.setFillColor(
+                248,
+                250,
+                255
+            );
+
+            doc.roundedRect(
+                15,
+                y,
+                pageWidth - 30,
+                16,
+                3,
+                3,
+                "F"
+            );
+
+
+            doc.setTextColor(
+                ...GRAY
+            );
+
+            doc.setFont(
+                "helvetica",
+                "normal"
+            );
+
+            doc.setFontSize(10);
+
+            doc.text(
+                "No tasks match the selected export filter.",
+                21,
+                y + 10
+            );
+
+
+            y += 23;
+
+            continue;
+
+        }
+
+
+        /* TASK CARDS */
+
+        filteredTasks.forEach(
+            (task,index)=>{
+
+                const title =
+                    safeText(
+                        task.querySelector(
+                            ".task-title"
+                        ).textContent
+                    );
+
+
+                const subject =
+                    safeText(
+                        task.dataset.subject
+                    );
+
+
+                const board =
+                    safeText(
+                        task.dataset.board
+                    );
+
+
+                const completed =
+                    task.classList.contains(
+                        "checked"
+                    );
+
+
+                const status =
+                    completed
+                        ? "COMPLETED"
+                        : "INCOMPLETE";
+
+
+                const wrapped =
+                    doc.splitTextToSize(
+                        title,
+                        pageWidth - 80
+                    );
+
+
+                const cardHeight =
+                    Math.max(
+                        26,
+                        18 +
+                        wrapped.length * 5
+                    );
+
+
+                if(
+                    y + cardHeight >
+                    pageHeight - 35
+                ){
+
+                    doc.addPage();
+
+                    y = 18;
+
+                    doc.setFillColor(
+                        ...BLUE
+                    );
+
+                    doc.rect(
+                        0,
+                        0,
+                        pageWidth,
+                        9,
+                        "F"
+                    );
+
+                }
+
+
+                /* CARD */
+
+                doc.setFillColor(
+                    completed
+                        ? 241
+                        : 250,
+                    completed
+                        ? 252
+                        : 250,
+                    completed
+                        ? 245
+                        : 255
+                );
+
+
+                doc.roundedRect(
+                    15,
+                    y,
+                    pageWidth - 30,
+                    cardHeight,
+                    3,
+                    3,
+                    "F"
+                );
+
+
+                /* NUMBER */
+
+                doc.setFillColor(
+                    ...BLUE
+                );
+
+                doc.circle(
+                    24,
+                    y + 10,
+                    4,
+                    "F"
+                );
+
+
+                doc.setTextColor(
+                    ...WHITE
+                );
+
+                doc.setFontSize(8);
+
+                doc.setFont(
+                    "helvetica",
+                    "bold"
+                );
+
+                doc.text(
+                    String(index + 1),
+                    24,
+                    y + 12.5,
+                    {
+                        align:"center"
+                    }
+                );
+
+
+                /* TASK */
+
+                doc.setTextColor(
+                    ...DARK
+                );
+
+                doc.setFont(
+                    "helvetica",
+                    "bold"
+                );
+
+                doc.setFontSize(10);
+
+                doc.text(
+                    wrapped,
+                    32,
+                    y + 8
+                );
+
+
+                /* SUBJECT */
+
+                const metaY =
+                    y +
+                    8 +
+                    wrapped.length * 5 +
+                    3;
+
+
+                doc.setFont(
+                    "helvetica",
+                    "normal"
+                );
+
+                doc.setFontSize(8);
+
+                doc.setTextColor(
+                    ...GRAY
+                );
+
+                doc.text(
+                    `${subject} • ${board}`,
+                    32,
+                    metaY
+                );
+
+
+                /* STATUS */
+
+                doc.setFont(
+                    "helvetica",
+                    "bold"
+                );
+
+                doc.setFontSize(8);
+
+
+                if(completed){
+
+                    doc.setTextColor(
+                        ...GREEN
+                    );
+
+                }else{
+
+                    doc.setTextColor(
+                        ...RED
+                    );
+
+                }
+
+
+                doc.text(
+                    status,
+                    pageWidth - 22,
+                    y + 9,
+                    {
+                        align:"right"
+                    }
+                );
+
+
+                y +=
+                    cardHeight + 5;
+
+            }
+        );
+
+
+        y += 8;
+
+    }
+
+
+    /* =====================================
+       FOOTER ON EVERY PAGE
+    ====================================== */
+
+    const totalPages =
+        doc.internal.getNumberOfPages();
+
+
+    for(
+        let i = 1;
+        i <= totalPages;
+        i++
+    ){
+
+        doc.setPage(i);
+
+
+        doc.setDrawColor(
+            220,
+            228,
+            240
+        );
+
+
+        doc.line(
+            15,
+            pageHeight - 17,
+            pageWidth - 15,
+            pageHeight - 17
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+        doc.setFontSize(8);
+
+        doc.setTextColor(
+            ...GRAY
+        );
+
+
+        doc.text(
+            "STUDY-HUB • MHT-CET 2027 Preparation",
+            15,
+            pageHeight - 10
+        );
+
+
+        doc.text(
+            "Chirag Nemade",
+            pageWidth - 15,
+            pageHeight - 10,
+            {
+                align:"right"
+            }
+        );
+
+    }
+
+
+    /* =====================================
+       FILE NAME
+    ====================================== */
+
+    const filename =
+        `STUDY-HUB_Week-1_Progress_${
+            new Date()
+                .toISOString()
+                .slice(0,10)
+        }.pdf`;
+
+
+    const blob =
+        doc.output("blob");
+
+
+    const file =
+        new File(
+            [blob],
+            filename,
+            {
+                type:"application/pdf"
+            }
+        );
+
+
+    /* =====================================
+       SHARE
+    ====================================== */
+
+    try{
+
+        if(
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({
+                files:[file]
+            })
+        ){
+
+            await navigator.share({
+
+                title:
+                    "STUDY-HUB Progress",
+
+                text:
+                    "My October Week 1 STUDY-HUB progress.",
+
+                files:[
+                    file
+                ]
+
+            });
+
+
+            showToast(
+                "PDF ready to share 📤"
+            );
+
+            closeExport();
+
+            return;
+
+        }
+
+    }catch(error){
+
+        if(
+            error &&
+            error.name === "AbortError"
+        ){
+
+            return;
+
+        }
+
+    }
+
+
+    /* =====================================
+       DOWNLOAD FALLBACK
+    ====================================== */
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+    link.download =
+        filename;
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    link.remove();
+
+
+    setTimeout(()=>{
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    },3000);
+
+
+    showToast(
+        "PDF downloaded successfully 📄"
+    );
+
+
+    closeExport();
+
+}
+
+
+/* =========================================
+   DAILY REMINDER
+========================================= */
+
+function reminderSupported(){
+
+    return "Notification" in window;
+
+}
+
+
+async function enableReminder(){
+
+    if(
+        !reminderSupported()
+    ){
+
+        showToast(
+            "This browser does not support notifications."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        const permission =
+            await Notification.requestPermission();
+
+
+        if(
+            permission === "granted"
+        ){
+
+            localStorage.setItem(
+                REMINDER_KEY,
+                "enabled"
+            );
+
+
+            updateReminderButton();
+
+
+            showToast(
+                "🔔 Daily reminder enabled."
+            );
+
+
+            new Notification(
+                "STUDY-HUB Reminder",
+                {
+                    body:
+                        "Your daily study reminder is enabled. Complete today's tasks!"
+                }
+            );
+
+
+        }else{
+
+            localStorage.setItem(
+                REMINDER_KEY,
+                "in-page"
+            );
+
+
+            updateReminderButton();
+
+
+            showToast(
+                "In-page reminder enabled."
+            );
+
+        }
+
+    }catch(error){
+
+        localStorage.setItem(
+            REMINDER_KEY,
+            "in-page"
+        );
+
+
+        updateReminderButton();
+
+
+        showToast(
+            "Browser blocked notifications. In-page reminder enabled."
+        );
+
+    }
+
+}
+
+
+function updateReminderButton(){
+
+    const btn =
+        document.getElementById(
+            "reminderBtn"
+        );
+
+
+    const text =
+        document.getElementById(
+            "reminderText"
+        );
+
+
+    const state =
+        localStorage.getItem(
+            REMINDER_KEY
+        );
+
+
+    if(
+        state === "enabled"
+    ){
+
+        btn.textContent =
+            "Enabled";
+
+        btn.classList.add(
+            "enabled"
+        );
+
+        text.textContent =
+            "🔔 Daily notification reminder is enabled.";
+
+
+    }else if(
+        state === "in-page"
+    ){
+
+        btn.textContent =
+            "Active";
+
+        btn.classList.add(
+            "enabled"
+        );
+
+        text.textContent =
+            "🔔 In-page daily reminder is active.";
+
+
+    }else{
+
+        btn.textContent =
+            "Enable";
+
+        btn.classList.remove(
+            "enabled"
+        );
+
+        text.textContent =
+            "Get a reminder to complete today's tasks.";
+
+    }
+
+}
+
+
+/* =========================================
+   REMINDER CHECK
+========================================= */
+
+let reminderLastDate = "";
+
+
+function checkDailyReminder(){
+
+    const now =
+        new Date();
+
+
+    const hour =
+        now.getHours();
+
+
+    const minute =
+        now.getMinutes();
+
+
+    const today =
+        getLocalISODate();
+
+
+    if(
+        hour === 20 &&
+        minute === 0 &&
+        reminderLastDate !== today
+    ){
+
+        reminderLastDate =
+            today;
+
+        sendDailyReminder();
+
+    }
+
+}
+
+
+function sendDailyReminder(){
+
+    const todayCard =
+        document.querySelector(
+            `.day-card[data-date="${getLocalISODate()}"]`
+        );
+
+
+    if(!todayCard) return;
+
+
+    const remaining =
+        todayCard.querySelectorAll(
+            ".task:not(.checked)"
+        ).length;
+
+
+    if(
+        remaining === 0
+    ){
+
+        return;
+
+    }
+
+
+    const state =
+        localStorage.getItem(
+            REMINDER_KEY
+        );
+
+
+    if(
+        state === "enabled" &&
+        "Notification" in window &&
+        Notification.permission === "granted"
+    ){
+
+        new Notification(
+            "🔔 STUDY-HUB Daily Reminder",
+            {
+                body:
+                    `You have ${remaining} task${
+                        remaining === 1
+                            ? ""
+                            : "s"
+                    } remaining today. Keep going, Chirag!`
+            }
+        );
+
+
+    }else{
+
+        showToast(
+            `🔔 Reminder: ${remaining} task${
+                remaining === 1
+                    ? ""
+                    : "s"
+            } remaining today.`
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   ESC KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            e.key === "Escape"
+        ){
+
+            closeExport();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   INIT
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadTheme();
+
+        loadTasks();
+
+        updateToday();
+
+        updateReminderButton();
+
+
+        /*
+           Check reminder immediately.
+        */
+
+        checkDailyReminder();
+
+
+        /*
+           Check every minute.
+        */
+
+        setInterval(
+            checkDailyReminder,
+            60000
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
